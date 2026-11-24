@@ -25,8 +25,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- ===== Référencement (SEO local) ===== -->
-<title>L’Enseigne du Lissage – Coiffeur Metz | Lissage brésilien, kératine &amp; soins</title>
-<meta name="description" content="L’Enseigne du Lissage, salon de coiffure à Metz dédié au lissage : lissage brésilien, tanin, kératine et soins profonds, 55 rue Serpenoise. Réservez en ligne sur Planity.">
+<title>L’Enseigne du Lissage – Coiffeur Metz | Lissages sans formol &amp; soins</title>
+<meta name="description" content="L’Enseigne du Lissage, salon de coiffure à Metz dédié au lissage : lissages Indien®, Dubaï® et Français® sans formol, soins et couleurs, 55 rue Serpenoise. Réservez en ligne sur Planity.">
 <link rel="canonical" href="https://www.votresalon.fr/">
 <meta name="theme-color" content="#F6F1EA">
 
@@ -399,28 +399,60 @@ section { padding-block: var(--section); }
 @media (min-width: 860px) { .avis-grid { grid-template-columns: repeat(3, 1fr); } }
 
 /* =====================================================================
-   12. TARIFS / RÉSERVATION
+   12. TARIFS / RÉSERVATION — guide des tailles + onglets
    ===================================================================== */
-.tarifs { display: grid; gap: 60px; }
-.tarifs__intro .btn { margin-top: 10px; }
-.tarifs__note { font-size: .92rem; color: var(--brun-doux); margin-top: 26px; }
+.tailles { margin-bottom: 44px; }
+.tailles__titre { font-size: .76rem; letter-spacing: .22em; text-transform: uppercase; margin-bottom: 14px; }
+.tailles__choix { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.tailles__choix button {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-align: left;
+  min-height: 72px; padding: 12px 16px; cursor: pointer;
+  font: inherit; font-size: .85rem; line-height: 1.35; color: var(--brun);
+  background: transparent; border: 1px solid rgba(59,47,40,.25); border-radius: 14px;
+  transition: background .3s, color .3s, border-color .3s;
+}
+.tailles__choix strong { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; line-height: 1; }
+.tailles__choix span { color: inherit; opacity: .8; }
+.tailles__choix button:hover { border-color: var(--brun); }
+.tailles__choix button[aria-checked="true"] { background: var(--brun); color: var(--creme); border-color: var(--brun); }
+@media (min-width: 760px) { .tailles__choix { grid-template-columns: repeat(4, 1fr); } }
+
+/* Onglets : défilent horizontalement sur mobile */
+.onglets {
+  display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
+  margin: 0 calc(-1 * var(--gouttiere)) 30px; padding: 0 var(--gouttiere) 4px;
+}
+.onglets::-webkit-scrollbar { display: none; }
+.onglets button {
+  flex: none; min-height: 44px; padding: 10px 20px; cursor: pointer;
+  font: inherit; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--brun);
+  background: transparent; border: 0; border-bottom: 1px solid transparent;
+}
+.onglets button[aria-selected="true"] { border-color: var(--brun); }
+.onglets button:hover { border-color: var(--taupe); }
+@media (min-width: 900px) { .onglets { margin-inline: 0; padding-inline: 0; flex-wrap: wrap; } }
+
+.panneau__intro { color: var(--brun-doux); max-width: 62ch; }
 .carte-tarifs { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(59,47,40,.18); }
 .tarif {
-  display: grid; grid-template-columns: 1fr auto; gap: 6px 20px; align-items: center;
+  display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; align-items: center;
   grid-template-areas: "titre prix" "details details" "bouton bouton";
-  padding: 26px 0; border-bottom: 1px solid rgba(59,47,40,.18);
+  padding: 22px 0; border-bottom: 1px solid rgba(59,47,40,.18);
 }
-.tarif h3 { grid-area: titre; margin: 0; font-size: 1.75rem; }
-.tarif__prix { font-family: var(--serif); font-size: 1.75rem; white-space: nowrap; text-align: right; grid-area: prix; margin: 0; }
+.tarif h4 { grid-area: titre; margin: 0; font-family: var(--serif); font-weight: 400; font-size: 1.55rem; line-height: 1.15; }
+.tarif__taille {
+  display: inline-block; vertical-align: middle; margin-left: 6px; padding: 1px 8px;
+  font-family: var(--sans); font-size: .68rem; letter-spacing: .1em; border: 1px solid var(--taupe); border-radius: 999px;
+}
+.tarif__prix { grid-area: prix; margin: 0; font-family: var(--serif); font-size: 1.6rem; white-space: nowrap; text-align: right; }
 .tarif__prix small { font-family: var(--sans); font-size: .78rem; letter-spacing: .08em; color: var(--brun-doux); }
 .tarif__details { grid-area: details; font-size: .95rem; color: var(--brun-doux); margin: 0; }
 .tarif .btn { grid-area: bouton; justify-self: start; margin-top: 10px; }
 @media (min-width: 900px) {
-  .tarifs { grid-template-columns: 1fr 1.5fr; gap: 90px; align-items: start; }
-  .tarifs__intro { position: sticky; top: calc(var(--header-h) + 40px); }
   .tarif { grid-template-columns: 1fr auto auto; grid-template-areas: "titre prix bouton" "details prix bouton"; column-gap: 28px; }
   .tarif .btn { justify-self: end; margin-top: 0; }
 }
+.tarifs__bas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 48px; }
 
 /* =====================================================================
    13. CONTACT
@@ -547,7 +579,7 @@ dialog p { font-size: .95rem; }
   <div class="container">
     <p class="eyebrow reveal">Salon de coiffure · Metz</p>
     <h1 class="reveal" data-delai="1">L’Enseigne <em>du Lissage</em></h1>
-    <p class="reveal" data-delai="2">Le salon entièrement dédié au lissage, à deux pas de la place de la République. Des cheveux lisses, brillants et faciles à vivre, pendant des mois.</p>
+    <p class="reveal" data-delai="2">Le salon entièrement dédié au lissage, à deux pas de la place de la République. Des lissages sans formol, pour des cheveux lisses, brillants et faciles à vivre.</p>
     <div class="hero__ctas reveal" data-delai="2">
       <a href="#reserver" class="btn btn--light" data-reservation>Prendre rendez-vous</a>
       <a href="#prestations" class="btn btn--ghost">Nos prestations</a>
@@ -555,7 +587,7 @@ dialog p { font-size: .95rem; }
     <div class="hero__infos reveal" data-delai="2">
       <span>Lun – Sam · 9h – 19h</span>
       <!-- NOTE : à mettre à jour de temps en temps -->
-      <span>★ 4,9/5 · 298 avis Planity</span>
+      <span>★ 4,9/5 · 322 avis Planity</span>
       <a href="tel:+33123456789">01 23 45 67 89</a>
     </div>
   </div>
@@ -571,11 +603,11 @@ dialog p { font-size: .95rem; }
       <h2 class="reveal">Des expertes en qui <em>avoir confiance</em></h2>
       <!-- TEXTE À PERSONNALISER : votre histoire, votre équipe, votre façon de travailler -->
       <p class="reveal">À L’Enseigne du Lissage, le lissage n’est pas une option parmi d’autres : c’est notre spécialité. Chaque rendez-vous commence par un diagnostic de vos cheveux (nature, épaisseur, couleur, sensibilité) pour choisir le lissage qui leur convient vraiment.</p>
-      <p class="reveal">Brésilien, tanin, kératine ou botox capillaire : nous travaillons avec des produits professionnels choisis pour respecter la fibre, dans un salon calme et lumineux du 55 rue Serpenoise, au cœur de Metz.</p>
+      <p class="reveal">Lissage Indien®, Dubaï® ou Français® : tous nos lissages sont garantis sans formol, conviennent à tous les types de cheveux (frisés, bouclés, épais ou indisciplinés) et sont adaptés aux femmes enceintes, allaitantes et aux enfants. Le tout dans un salon calme et lumineux du 55 rue Serpenoise, au cœur de Metz.</p>
       <!-- CHIFFRES : à adapter (ou supprimez la liste) -->
       <ul class="chiffres reveal">
-        <li><strong>4,9</strong><span>sur Planity</span></li>
-        <li><strong>298</strong><span>avis clientes</span></li>
+        <li><strong>4,9</strong><span>note Planity</span></li>
+        <li><strong>322</strong><span>avis clientes</span></li>
       </ul>
       <a href="#prestations" class="btn btn--ghost reveal">Découvrir nos prestations</a>
     </div>
@@ -606,7 +638,7 @@ dialog p { font-size: .95rem; }
         </div>
         <span class="service__num">01</span>
         <h3>Lissage</h3>
-        <p>Brésilien, tanin ou kératine : un lissage choisi selon vos cheveux, pour discipliner les frisottis et gagner du temps chaque matin.</p>
+        <p>Indien®, Dubaï® ou Français® : un lissage sans formol choisi selon vos cheveux, pour discipliner les frisottis et gagner du temps chaque matin.</p>
         <a href="#reserver" class="link"><span>En savoir plus</span></a>
       </article>
 
@@ -617,7 +649,7 @@ dialog p { font-size: .95rem; }
         </div>
         <span class="service__num">02</span>
         <h3>Soins</h3>
-        <p>Botox capillaire et soins profonds pour nourrir, réparer et redonner de la brillance, seuls ou en complément de votre lissage.</p>
+        <p>Notre spa capillaire : soins Botox, Caviar et Chewing-gum pour nourrir, réparer et redonner de la brillance, seuls ou après un lissage.</p>
         <a href="#reserver" class="link"><span>En savoir plus</span></a>
       </article>
 
@@ -627,8 +659,8 @@ dialog p { font-size: .95rem; }
           <img src="images/photo-coupe.jpg" alt="Ciseaux, peignes et brosse de coiffure posés sur une table claire" loading="lazy" width="236" height="420">
         </div>
         <span class="service__num">03</span>
-        <h3>Coupe &amp; brushing</h3>
-        <p>Pointes, coupe d’entretien ou brushing : pour garder un lissage net et des longueurs en bonne santé entre deux rendez-vous.</p>
+        <h3>Couleurs &amp; brushings</h3>
+        <p>Coupes, brushings, colorations végétales, ombré hair et sunlight : tout pour sublimer vos longueurs entre deux lissages.</p>
         <a href="#reserver" class="link"><span>En savoir plus</span></a>
       </article>
     </div>
@@ -663,27 +695,27 @@ dialog p { font-size: .95rem; }
       <p class="eyebrow reveal">Avis clientes</p>
       <h2 class="reveal">Elles nous font <em>confiance</em></h2>
       <!-- NOTE PLANITY : à mettre à jour de temps en temps -->
-      <p class="reveal">★★★★★ &nbsp;4,9/5 · 298 avis vérifiés sur Planity</p>
+      <p class="reveal">★★★★★ &nbsp;4,9/5 · 322 avis vérifiés sur Planity</p>
     </div>
 
     <div class="avis-grid">
       <figure class="avis reveal">
         <span class="exemple">Exemple – à remplacer par un vrai avis</span>
         <div class="etoiles" role="img" aria-label="5 étoiles sur 5">★★★★★</div>
-        <blockquote>« Mon lissage brésilien tient depuis des mois, mes cheveux sont doux et brillants. »</blockquote>
-        <figcaption>Prénom<span>Lissage brésilien</span></figcaption>
+        <blockquote>« Mon lissage tient depuis des mois, mes cheveux sont doux et brillants. »</blockquote>
+        <figcaption>Prénom<span>Lissage Dubaï®</span></figcaption>
       </figure>
       <figure class="avis reveal" data-delai="1">
         <span class="exemple">Exemple – à remplacer par un vrai avis</span>
         <div class="etoiles" role="img" aria-label="5 étoiles sur 5">★★★★★</div>
-        <blockquote>« Diagnostic très sérieux avant de commencer, on m'a conseillé le tanin. Accueil adorable. »</blockquote>
-        <figcaption>Prénom<span>Lissage au tanin</span></figcaption>
+        <blockquote>« Diagnostic très sérieux avant de commencer, on m'a conseillé le lissage Français®. Accueil adorable. »</blockquote>
+        <figcaption>Prénom<span>Lissage Français®</span></figcaption>
       </figure>
       <figure class="avis reveal" data-delai="2">
         <span class="exemple">Exemple – à remplacer par un vrai avis</span>
         <div class="etoiles" role="img" aria-label="5 étoiles sur 5">★★★★★</div>
-        <blockquote>« Mes cheveux abîmés ont retrouvé leur brillance après le botox capillaire. »</blockquote>
-        <figcaption>Prénom<span>Botox capillaire</span></figcaption>
+        <blockquote>« Mes cheveux abîmés ont retrouvé leur brillance après le soin Botox. »</blockquote>
+        <figcaption>Prénom<span>Soin Botox</span></figcaption>
       </figure>
     </div>
 
@@ -698,49 +730,264 @@ dialog p { font-size: .95rem; }
      Pour ajouter une prestation : copiez un bloc <li class="tarif">…</li>
      ================================================================ -->
 <section class="bg-sable torn" id="reserver">
-  <div class="container tarifs">
-    <div class="tarifs__intro">
+  <div class="container">
+    <div class="section-head">
       <p class="eyebrow reveal">Tarifs &amp; réservation</p>
       <h2 class="reveal">Réservez votre <em>rendez&#8209;vous</em></h2>
-      <p class="reveal">Choisissez votre prestation et réservez en quelques secondes sur Planity. Un doute sur le lissage à choisir ? Appelez-nous, on vous conseille.</p>
-      <a href="tel:+33123456789" class="btn btn--ghost reveal">Appeler le 01 23 45 67 89</a>
-      <p class="tarifs__note reveal">Le prix d’un lissage dépend de la longueur et de l’épaisseur des cheveux. Tarif exact affiché sur Planity.</p>
+      <p class="reveal">Choisissez la longueur de vos cheveux pour voir le tarif exact, puis réservez en quelques secondes sur Planity. Un doute ? Appelez-nous, on vous conseille.</p>
     </div>
 
-    <!-- PRESTATIONS, DURÉES ET PRIX : à vérifier et compléter (remplacez XX)
-         avec les tarifs affichés sur votre page Planity -->
-    <ul class="carte-tarifs">
-      <li class="tarif reveal">
-        <h3>Lissage brésilien</h3>
-        <p class="tarif__details">Diagnostic, lissage &amp; brushing · 2 h 30</p>
-        <p class="tarif__prix"><small>dès</small> XX €</p>
-        <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Lissage brésilien">Réserver</a>
-      </li>
-      <li class="tarif reveal">
-        <h3>Lissage au tanin</h3>
-        <p class="tarif__details">Sans formol, adapté aux cheveux sensibles · 2 h 30</p>
-        <p class="tarif__prix"><small>dès</small> XX €</p>
-        <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Lissage au tanin">Réserver</a>
-      </li>
-      <li class="tarif reveal">
-        <h3>Lissage à la kératine</h3>
-        <p class="tarif__details">Discipline et brillance · 2 h</p>
-        <p class="tarif__prix"><small>dès</small> XX €</p>
-        <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Lissage à la kératine">Réserver</a>
-      </li>
-      <li class="tarif reveal">
-        <h3>Botox capillaire</h3>
-        <p class="tarif__details">Soin réparateur en profondeur · 1 h 30</p>
-        <p class="tarif__prix"><small>dès</small> XX €</p>
-        <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Botox capillaire">Réserver</a>
-      </li>
-      <li class="tarif reveal">
-        <h3>Coupe &amp; brushing</h3>
-        <p class="tarif__details">Shampoing, coupe &amp; brushing · 45 min</p>
-        <p class="tarif__prix"><small>dès</small> XX €</p>
-        <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Coupe &amp; brushing">Réserver</a>
-      </li>
-    </ul>
+    <!-- GUIDE DES TAILLES : met à jour les prix de toute la grille -->
+    <div class="tailles reveal">
+      <p class="tailles__titre">Longueur de vos cheveux</p>
+      <div class="tailles__choix" role="radiogroup" aria-label="Longueur de vos cheveux">
+        <button type="button" role="radio" aria-checked="true" data-taille="0"><strong>S</strong><span>au niveau des oreilles</span></button>
+        <button type="button" role="radio" aria-checked="false" data-taille="1"><strong>M</strong><span>carré, au-dessus des épaules</span></button>
+        <button type="button" role="radio" aria-checked="false" data-taille="2"><strong>L</strong><span>sous les épaules</span></button>
+        <button type="button" role="radio" aria-checked="false" data-taille="3"><strong>XL</strong><span>creux du dos ou cheveux difficiles</span></button>
+      </div>
+    </div>
+
+    <!-- GRILLE DES TARIFS (relevée sur Planity le 24/11/2026)
+         Pour un prix selon la longueur : data-prix="S|M|L|XL" et data-duree="S|M|L|XL".
+         Pour ajouter une prestation, copiez un bloc <li class="tarif">…</li>. -->
+    <div class="tarifs reveal">
+      <div class="onglets" role="tablist" aria-label="Catégories de prestations">
+        <button type="button" role="tab" id="onglet-lissages" aria-controls="panneau-lissages" aria-selected="true">Lissages</button>
+        <button type="button" role="tab" id="onglet-spa" aria-controls="panneau-spa" aria-selected="false" tabindex="-1">Spa capillaire</button>
+        <button type="button" role="tab" id="onglet-brushings" aria-controls="panneau-brushings" aria-selected="false" tabindex="-1">Brushings &amp; coupes</button>
+        <button type="button" role="tab" id="onglet-couleurs" aria-controls="panneau-couleurs" aria-selected="false" tabindex="-1">Couleurs</button>
+        <button type="button" role="tab" id="onglet-lumieres" aria-controls="panneau-lumieres" aria-selected="false" tabindex="-1">Lumières</button>
+        <button type="button" role="tab" id="onglet-extensions" aria-controls="panneau-extensions" aria-selected="false" tabindex="-1">Extensions</button>
+        <button type="button" role="tab" id="onglet-messieurs" aria-controls="panneau-messieurs" aria-selected="false" tabindex="-1">Messieurs</button>
+      </div>
+      <div class="panneau" role="tabpanel" id="panneau-lissages" aria-labelledby="onglet-lissages">
+        <p class="panneau__intro">Tous nos lissages sont garantis sans formol, pour tous types de cheveux, et adaptés aux femmes enceintes, allaitantes et aux enfants.</p>
+        <ul class="carte-tarifs">
+          <li class="tarif" data-prix="350|400|450|500" data-duree="2 h 05|2 h 45|2 h 45|2 h 55">
+            <h4>Lissage Indien® <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details">Nanoplastie dernière génération enrichie en collagène · <span class="js-duree">2 h 05</span></p>
+            <p class="tarif__prix"><span class="js-prix">350</span> €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Lissage Indien®">Réserver</a>
+          </li>
+          <li class="tarif" data-prix="300|350|400|450" data-duree="2 h 20|2 h 45|3 h|3 h 15">
+            <h4>Lissage Dubaï® <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details">Lissage intense qui lisse jusqu’à 100 % des cheveux · <span class="js-duree">2 h 20</span></p>
+            <p class="tarif__prix"><span class="js-prix">300</span> €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Lissage Dubaï®">Réserver</a>
+          </li>
+          <li class="tarif" data-prix="199|269|299|349" data-duree="2 h 15|2 h 25|2 h 35|2 h 45">
+            <h4>Lissage Français® <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details">Soin lissant à l’huile de soja et à l’huile de coco · <span class="js-duree">2 h 15</span></p>
+            <p class="tarif__prix"><span class="js-prix">199</span> €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Lissage Français®">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Dose supplémentaire lissage </h4>
+            <p class="tarif__details">15 min</p>
+            <p class="tarif__prix">20 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Dose supplémentaire lissage">Réserver</a>
+          </li>
+        </ul>
+      </div>
+      <div class="panneau" role="tabpanel" id="panneau-spa" aria-labelledby="onglet-spa" hidden>
+        <p class="panneau__intro">Des soins profonds pour réparer, nourrir et faire briller, seuls ou après un lissage.</p>
+        <ul class="carte-tarifs">
+          <li class="tarif" data-prix="93|104|114|134" data-duree="1 h 30|1 h 45|2 h|2 h">
+            <h4>Soin Botox <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details">Kératine, huile d’argan, huile de coco, protéine de soie · <span class="js-duree">1 h 30</span></p>
+            <p class="tarif__prix"><span class="js-prix">93</span> €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Soin Botox">Réserver</a>
+          </li>
+          <li class="tarif" data-prix="99|129|159|169" data-duree="1 h 30|1 h 40|2 h|2 h">
+            <h4>Soin Caviar <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details">Pour cheveux secs, déshydratés, abîmés ou sensibilisés · <span class="js-duree">1 h 30</span></p>
+            <p class="tarif__prix"><span class="js-prix">99</span> €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Soin Caviar">Réserver</a>
+          </li>
+          <li class="tarif" data-prix="58|69|79|91" data-duree="1 h|1 h 15|1 h 30|1 h 45">
+            <h4>Soin Chewing-gum <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details">Thérapie pour cheveux ayant subi des traitements · <span class="js-duree">1 h</span></p>
+            <p class="tarif__prix"><span class="js-prix">58</span> €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Soin Chewing-gum">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Rituel cuir chevelu </h4>
+            <p class="tarif__details">Massage aux huiles essentielles, lotion adaptée · 15 min</p>
+            <p class="tarif__prix">20 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Rituel cuir chevelu">Réserver</a>
+          </li>
+        </ul>
+      </div>
+      <div class="panneau" role="tabpanel" id="panneau-brushings" aria-labelledby="onglet-brushings" hidden>
+        <p class="panneau__intro">Chaque prestation commence par un diagnostic de vos cheveux.</p>
+        <ul class="carte-tarifs">
+          <li class="tarif" data-prix="30|36|41|48" data-duree="30 min|45 min|1 h|1 h">
+            <h4>Bain + brushing <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details">Shampoing et brushing · <span class="js-duree">30 min</span></p>
+            <p class="tarif__prix"><span class="js-prix">30</span> €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Bain + brushing">Réserver</a>
+          </li>
+          <li class="tarif" data-prix="49|55|60|67" data-duree="45 min|1 h|1 h|1 h 15">
+            <h4>Bain + coupe + brushing <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details">Shampoing, coupe et brushing · <span class="js-duree">45 min</span></p>
+            <p class="tarif__prix"><span class="js-prix">49</span> €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Bain + coupe + brushing">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Boucles / wavy </h4>
+            <p class="tarif__details">Boucles réalisées sur cheveux fraîchement lavés · 30 min</p>
+            <p class="tarif__prix">20 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Boucles / wavy">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Frange ou nuque </h4>
+            <p class="tarif__details">10 min</p>
+            <p class="tarif__prix">5 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Frange ou nuque">Réserver</a>
+          </li>
+        </ul>
+      </div>
+      <div class="panneau" role="tabpanel" id="panneau-couleurs" aria-labelledby="onglet-couleurs" hidden>
+        <p class="panneau__intro">Racines, couleur complète ou coloration végétale, toujours suivies d’un brushing.</p>
+        <ul class="carte-tarifs">
+          <li class="tarif" data-prix="66|71|77|84" data-duree="1 h 30|1 h 45|2 h|2 h">
+            <h4>Coloration racines &amp; brushing <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details">Bain, coloration des racines et brushing · <span class="js-duree">1 h 30</span></p>
+            <p class="tarif__prix"><span class="js-prix">66</span> €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Coloration racines &amp; brushing">Réserver</a>
+          </li>
+          <li class="tarif" data-prix="81|86|101|126" data-duree="1 h 30|1 h 45|2 h|2 h 10">
+            <h4>Coloration complète <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details">Shampoing et coloration complète · <span class="js-duree">1 h 30</span></p>
+            <p class="tarif__prix"><span class="js-prix">81</span> €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Coloration complète">Réserver</a>
+          </li>
+          <li class="tarif" data-prix="71|76|82|89" data-duree="1 h 30|1 h 30|1 h 45|2 h">
+            <h4>Coloration végétale &amp; brushing <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details">Bain, coloration végétale et brushing · <span class="js-duree">1 h 30</span></p>
+            <p class="tarif__prix"><span class="js-prix">71</span> €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Coloration végétale &amp; brushing">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>+ Coupe </h4>
+            <p class="tarif__details">À ajouter après une prestation · 20 min</p>
+            <p class="tarif__prix">19 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : + Coupe">Réserver</a>
+          </li>
+        </ul>
+      </div>
+      <div class="panneau" role="tabpanel" id="panneau-lumieres" aria-labelledby="onglet-lumieres" hidden>
+        <p class="panneau__intro">Ombré hair et sunlight sur mesure. Nous recommandons d’associer chaque éclaircissement à un soin hydratant Chewing-gum.</p>
+        <ul class="carte-tarifs">
+          <li class="tarif" data-prix="160|173|186|200" data-duree="2 h 35|2 h 50|3 h 20|3 h 35">
+            <h4>Ombré hair, gloss, coupe &amp; brushing <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details">Notre spécialité, l’ombré hair sur mesure · <span class="js-duree">2 h 35</span></p>
+            <p class="tarif__prix"><span class="js-prix">160</span> €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Ombré hair, gloss, coupe &amp; brushing">Réserver</a>
+          </li>
+          <li class="tarif" data-prix="141|154|167|181" data-duree="2 h 20|2 h 35|3 h 05|3 h 20">
+            <h4>Ombré hair, gloss &amp; brushing <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details">Ombré hair sur mesure, sans coupe · <span class="js-duree">2 h 20</span></p>
+            <p class="tarif__prix"><span class="js-prix">141</span> €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Ombré hair, gloss &amp; brushing">Réserver</a>
+          </li>
+          <li class="tarif" data-prix="115|132|148|168" data-duree="2 h 05|2 h 35|2 h 50|3 h 05">
+            <h4>Sunlight &amp; brushing <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details">Un coup d’éclat lumineux · <span class="js-duree">2 h 05</span></p>
+            <p class="tarif__prix"><span class="js-prix">115</span> €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Sunlight &amp; brushing">Réserver</a>
+          </li>
+        </ul>
+      </div>
+      <div class="panneau" role="tabpanel" id="panneau-extensions" aria-labelledby="onglet-extensions" hidden>
+        <p class="panneau__intro">Extensions à bandes adhésives, posées à froid.</p>
+        <ul class="carte-tarifs">
+          <li class="tarif">
+            <h4>Devis pose d’extensions </h4>
+            <p class="tarif__details">Acompte de 50 % à la commande · 20 min</p>
+            <p class="tarif__prix"><small>Sur devis</small></p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Devis pose d’extensions">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Pose d’extensions </h4>
+            <p class="tarif__details">Extensions non fournies dans cette prestation · 1 h</p>
+            <p class="tarif__prix"><small>Sur devis</small></p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Pose d’extensions">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Dépose d’extensions </h4>
+            <p class="tarif__details">Tarif de la dépose uniquement · 1 h</p>
+            <p class="tarif__prix"><small>Sur devis</small></p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Dépose d’extensions">Réserver</a>
+          </li>
+        </ul>
+      </div>
+      <div class="panneau" role="tabpanel" id="panneau-messieurs" aria-labelledby="onglet-messieurs" hidden>
+        <p class="panneau__intro">Coupes, barbe et soins pour hommes.</p>
+        <ul class="carte-tarifs">
+          <li class="tarif">
+            <h4>Shampoing, coupe &amp; coiffage </h4>
+            <p class="tarif__details">30 min</p>
+            <p class="tarif__prix">25 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Shampoing, coupe &amp; coiffage">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Coupe tondeuse / couronne </h4>
+            <p class="tarif__details">30 min</p>
+            <p class="tarif__prix">17 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Coupe tondeuse / couronne">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Rituel barbe </h4>
+            <p class="tarif__details">Taille, rasage, serviette chaude et froide, soin · 30 min</p>
+            <p class="tarif__prix">25 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Rituel barbe">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Barbe entretien </h4>
+            <p class="tarif__details">Entretien des contours · 15 min</p>
+            <p class="tarif__prix">15 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Barbe entretien">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Lissage homme </h4>
+            <p class="tarif__details">1 h 30</p>
+            <p class="tarif__prix"><small>dès</small> 70 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Lissage homme">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Permanente </h4>
+            <p class="tarif__details">1 h 50</p>
+            <p class="tarif__prix"><small>dès</small> 72 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Permanente">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Décoloration </h4>
+            <p class="tarif__details">30 min</p>
+            <p class="tarif__prix"><small>dès</small> 28 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Décoloration">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Cover 5’ </h4>
+            <p class="tarif__details">Service rapide qui estompe les cheveux blancs</p>
+            <p class="tarif__prix">17 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Cover 5’">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Rituel cuir chevelu </h4>
+            <p class="tarif__details">Massage aux huiles essentielles · 15 min</p>
+            <p class="tarif__prix">20 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Rituel cuir chevelu">Réserver</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tarifs__bas reveal">
+      <a href="#reserver" class="btn" data-reservation>Voir toutes les disponibilités</a>
+      <a href="tel:+33123456789" class="btn btn--ghost">Appeler le 01 23 45 67 89</a>
+    </div>
   </div>
 </section>
 
@@ -798,8 +1045,7 @@ dialog p { font-size: .95rem; }
         <div>
           <h3>Horaires</h3>
           <ul class="horaires">
-            <!-- HORAIRES : à vérifier -->
-            <li><span>Lundi – Samedi</span><span>9h – 19h</span></li>
+                        <li><span>Lundi – Samedi</span><span>9h – 19h</span></li>
             <li><span>Dimanche</span><span>Fermé</span></li>
           </ul>
         </div>
@@ -938,6 +1184,40 @@ const revealObs = new IntersectionObserver(function (entries) {
   });
 }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
 document.querySelectorAll(".reveal").forEach(function (el) { revealObs.observe(el); });
+
+/* --- Tarifs : onglets de catégories --- */
+const onglets = document.querySelectorAll('[role="tab"]');
+function ouvrirOnglet(onglet) {
+  onglets.forEach(function (o) {
+    const actif = o === onglet;
+    o.setAttribute("aria-selected", actif);
+    o.tabIndex = actif ? 0 : -1;
+    document.getElementById(o.getAttribute("aria-controls")).hidden = !actif;
+  });
+}
+onglets.forEach(function (o, i) {
+  o.addEventListener("click", function () { ouvrirOnglet(o); });
+  o.addEventListener("keydown", function (e) {   // flèches gauche/droite au clavier
+    const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+    if (!d) return;
+    const suivant = onglets[(i + d + onglets.length) % onglets.length];
+    suivant.focus(); ouvrirOnglet(suivant);
+  });
+});
+
+/* --- Tarifs : guide des tailles S / M / L / XL --- */
+const NOMS_TAILLES = ["S", "M", "L", "XL"];
+document.querySelectorAll("[data-taille]").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    const t = Number(btn.dataset.taille);
+    document.querySelectorAll("[data-taille]").forEach(function (b) { b.setAttribute("aria-checked", b === btn); });
+    document.querySelectorAll(".tarif[data-prix]").forEach(function (li) {
+      li.querySelector(".js-prix").textContent = li.dataset.prix.split("|")[t];
+      li.querySelector(".js-duree").textContent = li.dataset.duree.split("|")[t];
+      li.querySelector(".js-taille").textContent = NOMS_TAILLES[t];
+    });
+  });
+});
 
 /* --- Image manquante : on la masque pour laisser le fond beige + son nom --- */
 document.querySelectorAll(".photo img").forEach(function (img) {
