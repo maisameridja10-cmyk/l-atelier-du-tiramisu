@@ -7,10 +7,6 @@
   ║                                                                  ║
   ║  Pour personnaliser : utilisez « Rechercher / Remplacer » sur    ║
   ║  ces repères (ils apparaissent partout où il faut les changer) : ║
-  ║    Nom du Salon        → le nom de votre salon                   ║
-  ║    VILLE               → votre ville                             ║
-  ║    12 rue Exemple      → votre rue                               ║
-  ║    00000               → votre code postal                       ║
   ║    01 23 45 67 89      → votre téléphone (affiché)               ║
   ║    +33123456789        → votre téléphone (format international)  ║
   ║    contact@votresalon.fr → votre email                           ║
@@ -29,15 +25,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- ===== Référencement (SEO local) ===== -->
-<title>Nom du Salon – Coiffeur VILLE | Coupe, balayage &amp; soins</title>
-<meta name="description" content="Nom du Salon, coiffeur à VILLE : coupes femme, balayage, coloration, brushing et soins profonds dans un salon chaleureux. Prenez rendez-vous en ligne ou au 01 23 45 67 89.">
+<title>L’Enseigne du Lissage – Coiffeur Metz | Lissage brésilien, kératine &amp; soins</title>
+<meta name="description" content="L’Enseigne du Lissage, salon de coiffure à Metz dédié au lissage : lissage brésilien, tanin, kératine et soins profonds, 55 rue Serpenoise. Réservez en ligne sur Planity.">
 <link rel="canonical" href="https://www.votresalon.fr/">
 <meta name="theme-color" content="#F6F1EA">
 
 <!-- Aperçu lors d'un partage (WhatsApp, Facebook, Instagram…) -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Nom du Salon – Coiffeur VILLE">
-<meta property="og:description" content="Coupes, balayage, coloration et soins dans un salon chaleureux à VILLE.">
+<meta property="og:title" content="L’Enseigne du Lissage – Coiffeur Metz">
+<meta property="og:description" content="Le salon dédié au lissage à Metz, 55 rue Serpenoise.">
 <meta property="og:image" content="https://www.votresalon.fr/images/photo-salon.jpg">
 <meta property="og:locale" content="fr_FR">
 
@@ -54,7 +50,7 @@
 {
   "@context": "https://schema.org",
   "@type": "HairSalon",
-  "name": "Nom du Salon",
+  "name": "L’Enseigne du Lissage",
   "image": "https://www.votresalon.fr/images/photo-salon.jpg",
   "url": "https://www.votresalon.fr/",
   "telephone": "+33123456789",
@@ -62,15 +58,15 @@
   "priceRange": "€€",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "12 rue Exemple",
-    "postalCode": "00000",
-    "addressLocality": "VILLE",
+    "streetAddress": "55 rue Serpenoise",
+    "postalCode": "57000",
+    "addressLocality": "Metz",
     "addressCountry": "FR"
   },
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       "opens": "09:00",
       "closes": "19:00"
     }
@@ -294,7 +290,8 @@ section { padding-block: var(--section); }
     font-family: var(--serif); font-size: 2rem; letter-spacing: 0; text-transform: none;
   }
 }
-@media (max-width: 380px) { .logo { font-size: 1.35rem; } .header .btn { padding-inline: 14px; } }
+@media (max-width: 520px) { .header .logo { font-size: 1.2rem; white-space: normal; max-width: 9ch; line-height: 1.05; } }
+@media (max-width: 360px) { .header .btn { padding-inline: 14px; } }
 
 /* =====================================================================
    7. HERO
@@ -516,8 +513,8 @@ dialog p { font-size: .95rem; }
      ================================================================ -->
 <header class="header" id="header">
   <div class="container">
-    <!-- LOGO : remplacez le texte, ou mettez <img src="images/logo.svg" alt="Nom du Salon" height="40"> -->
-    <a href="#accueil" class="logo">Nom du Salon</a>
+    <!-- LOGO : remplacez le texte, ou mettez <img src="images/logo.svg" alt="L’Enseigne du Lissage" height="40"> -->
+    <a href="#accueil" class="logo">L’Enseigne <em>du Lissage</em></a>
 
     <nav class="nav" id="nav" aria-label="Menu principal">
       <ul>
@@ -545,18 +542,20 @@ dialog p { font-size: .95rem; }
 <section class="hero" id="accueil" aria-label="Accueil">
   <div class="hero__photo">
     <!-- PHOTO : images/photo-salon.jpg (intérieur du salon, format paysage) -->
-    <img src="images/photo-salon.jpg" alt="Intérieur lumineux du salon Nom du Salon à VILLE : miroirs dorés, fauteuils de coiffure et coin d'attente" fetchpriority="high">
+    <img src="images/photo-salon.jpg" alt="Intérieur lumineux du salon L’Enseigne du Lissage à Metz : miroirs dorés, fauteuils de coiffure et coin d'attente" fetchpriority="high">
   </div>
   <div class="container">
-    <p class="eyebrow reveal">Salon de coiffure · VILLE</p>
-    <h1 class="reveal" data-delai="1">Nom du <em>Salon</em></h1>
-    <p class="reveal" data-delai="2">Coupes, balayages et soins sur mesure, dans un salon où l'on prend le temps de vous écouter.</p>
+    <p class="eyebrow reveal">Salon de coiffure · Metz</p>
+    <h1 class="reveal" data-delai="1">L’Enseigne <em>du Lissage</em></h1>
+    <p class="reveal" data-delai="2">Le salon entièrement dédié au lissage, à deux pas de la place de la République. Des cheveux lisses, brillants et faciles à vivre, pendant des mois.</p>
     <div class="hero__ctas reveal" data-delai="2">
       <a href="#reserver" class="btn btn--light" data-reservation>Prendre rendez-vous</a>
       <a href="#prestations" class="btn btn--ghost">Nos prestations</a>
     </div>
     <div class="hero__infos reveal" data-delai="2">
-      <span>Mar – Sam · 9h – 19h</span>
+      <span>Lun – Sam · 9h – 19h</span>
+      <!-- NOTE : à mettre à jour de temps en temps -->
+      <span>★ 4,9/5 · 298 avis Planity</span>
       <a href="tel:+33123456789">01 23 45 67 89</a>
     </div>
   </div>
@@ -571,12 +570,12 @@ dialog p { font-size: .95rem; }
       <p class="eyebrow reveal">Le salon</p>
       <h2 class="reveal">Des expertes en qui <em>avoir confiance</em></h2>
       <!-- TEXTE À PERSONNALISER : votre histoire, votre équipe, votre façon de travailler -->
-      <p class="reveal">Chez Nom du Salon, chaque rendez-vous commence par un vrai échange : votre quotidien, vos envies, le temps que vous voulez consacrer à vos cheveux. On vous conseille ensuite la coupe, la couleur ou le soin qui vous ressemble, sans jamais vous imposer une tendance.</p>
-      <p class="reveal">Balayages lumineux, coupes femme, cheveux bouclés, brushings : nous travaillons avec des produits professionnels choisis pour respecter la fibre, dans un salon calme et lumineux au cœur de VILLE.</p>
+      <p class="reveal">À L’Enseigne du Lissage, le lissage n’est pas une option parmi d’autres : c’est notre spécialité. Chaque rendez-vous commence par un diagnostic de vos cheveux (nature, épaisseur, couleur, sensibilité) pour choisir le lissage qui leur convient vraiment.</p>
+      <p class="reveal">Brésilien, tanin, kératine ou botox capillaire : nous travaillons avec des produits professionnels choisis pour respecter la fibre, dans un salon calme et lumineux du 55 rue Serpenoise, au cœur de Metz.</p>
       <!-- CHIFFRES : à adapter (ou supprimez la liste) -->
       <ul class="chiffres reveal">
-        <li><strong>10</strong><span>ans d'expérience</span></li>
-        <li><strong>3</strong><span>coiffeuses</span></li>
+        <li><strong>4,9</strong><span>sur Planity</span></li>
+        <li><strong>298</strong><span>avis clientes</span></li>
       </ul>
       <a href="#prestations" class="btn btn--ghost reveal">Découvrir nos prestations</a>
     </div>
@@ -596,40 +595,40 @@ dialog p { font-size: .95rem; }
   <div class="container">
     <div class="section-head">
       <p class="eyebrow reveal">Prestations</p>
-      <h2 class="reveal">Ce que nous faisons <em>avec soin</em></h2>
+      <h2 class="reveal">Le lissage, <em>notre métier</em></h2>
     </div>
 
     <div class="services">
       <article class="service reveal">
-        <!-- PHOTO : images/photo-coupe.jpg -->
-        <div class="photo arche" data-nom="photo-coupe.jpg">
-          <img src="images/photo-coupe.jpg" alt="Ciseaux, peignes et brosse de coiffure posés sur une table claire" loading="lazy" width="236" height="420">
+        <!-- PHOTO : images/photo-lissage.jpg -->
+        <div class="photo arche" data-nom="photo-lissage.jpg">
+          <img src="images/photo-lissage.jpg" alt="Longs cheveux bruns parfaitement lisses et brillants après un lissage" loading="lazy" width="900" height="1396">
         </div>
         <span class="service__num">01</span>
-        <h3>Coupe</h3>
-        <p>Coupe femme adaptée à votre visage et à la nature de vos cheveux, lisses ou bouclés, avec brushing ou séchage naturel.</p>
+        <h3>Lissage</h3>
+        <p>Brésilien, tanin ou kératine : un lissage choisi selon vos cheveux, pour discipliner les frisottis et gagner du temps chaque matin.</p>
         <a href="#reserver" class="link"><span>En savoir plus</span></a>
       </article>
 
       <article class="service reveal" data-delai="1">
-        <!-- PHOTO : images/photo-coloration.jpg -->
-        <div class="photo arche" data-nom="photo-coloration.jpg">
-          <img src="images/photo-coloration.jpg" alt="Bacs à shampoing et produits de coloration professionnels du salon" loading="lazy" width="773" height="460">
+        <!-- PHOTO : images/photo-soins.jpg -->
+        <div class="photo arche" data-nom="photo-soins.jpg">
+          <img src="images/photo-soins.jpg" alt="Bacs à shampoing et produits de soin professionnels du salon" loading="lazy" width="773" height="460">
         </div>
         <span class="service__num">02</span>
-        <h3>Coloration</h3>
-        <p>Balayage, ombré, couleur ou patine : des nuances naturelles et lumineuses, dosées avec précision pour respecter vos longueurs.</p>
+        <h3>Soins</h3>
+        <p>Botox capillaire et soins profonds pour nourrir, réparer et redonner de la brillance, seuls ou en complément de votre lissage.</p>
         <a href="#reserver" class="link"><span>En savoir plus</span></a>
       </article>
 
       <article class="service reveal" data-delai="2">
-        <!-- PHOTO : images/photo-soin.jpg -->
-        <div class="photo arche" data-nom="photo-soin.jpg">
-          <img src="images/photo-soin.jpg" alt="Longs cheveux bruns lisses et brillants après un soin" loading="lazy" width="900" height="1396">
+        <!-- PHOTO : images/photo-coupe.jpg (petite image : à remplacer par une plus grande) -->
+        <div class="photo arche" data-nom="photo-coupe.jpg">
+          <img src="images/photo-coupe.jpg" alt="Ciseaux, peignes et brosse de coiffure posés sur une table claire" loading="lazy" width="236" height="420">
         </div>
         <span class="service__num">03</span>
-        <h3>Soins</h3>
-        <p>Soins profonds et rituels réparateurs pour nourrir, apaiser le cuir chevelu et redonner brillance aux cheveux fatigués.</p>
+        <h3>Coupe &amp; brushing</h3>
+        <p>Pointes, coupe d’entretien ou brushing : pour garder un lissage net et des longueurs en bonne santé entre deux rendez-vous.</p>
         <a href="#reserver" class="link"><span>En savoir plus</span></a>
       </article>
     </div>
@@ -647,7 +646,7 @@ dialog p { font-size: .95rem; }
   <div class="container">
     <p class="eyebrow reveal">Un moment pour vous</p>
     <h2 class="reveal">Prenez soin de <em>vos cheveux</em></h2>
-    <p class="reveal">Offrez-vous une parenthèse : diagnostic, shampoing massant et conseils pour prolonger le résultat chez vous.</p>
+    <p class="reveal">Après votre lissage, on vous explique comment le faire durer : shampoing adapté, gestes à éviter, soins à la maison.</p>
     <a href="#reserver" class="btn btn--light reveal" data-reservation>Réserver mon moment</a>
   </div>
 </section>
@@ -663,32 +662,33 @@ dialog p { font-size: .95rem; }
     <div class="section-head section-head--center">
       <p class="eyebrow reveal">Avis clientes</p>
       <h2 class="reveal">Elles nous font <em>confiance</em></h2>
+      <!-- NOTE PLANITY : à mettre à jour de temps en temps -->
+      <p class="reveal">★★★★★ &nbsp;4,9/5 · 298 avis vérifiés sur Planity</p>
     </div>
 
     <div class="avis-grid">
       <figure class="avis reveal">
         <span class="exemple">Exemple – à remplacer par un vrai avis</span>
         <div class="etoiles" role="img" aria-label="5 étoiles sur 5">★★★★★</div>
-        <blockquote>« Un balayage très naturel, exactement ce que je voulais. On m'a vraiment écoutée. »</blockquote>
-        <figcaption>Prénom<span>Balayage</span></figcaption>
+        <blockquote>« Mon lissage brésilien tient depuis des mois, mes cheveux sont doux et brillants. »</blockquote>
+        <figcaption>Prénom<span>Lissage brésilien</span></figcaption>
       </figure>
       <figure class="avis reveal" data-delai="1">
         <span class="exemple">Exemple – à remplacer par un vrai avis</span>
         <div class="etoiles" role="img" aria-label="5 étoiles sur 5">★★★★★</div>
-        <blockquote>« Enfin une coiffeuse qui sait couper les cheveux bouclés. Salon calme et accueil adorable. »</blockquote>
-        <figcaption>Prénom<span>Coupe cheveux bouclés</span></figcaption>
+        <blockquote>« Diagnostic très sérieux avant de commencer, on m'a conseillé le tanin. Accueil adorable. »</blockquote>
+        <figcaption>Prénom<span>Lissage au tanin</span></figcaption>
       </figure>
       <figure class="avis reveal" data-delai="2">
         <span class="exemple">Exemple – à remplacer par un vrai avis</span>
         <div class="etoiles" role="img" aria-label="5 étoiles sur 5">★★★★★</div>
-        <blockquote>« Mes cheveux n'ont jamais été aussi doux après le soin profond. Je reviendrai. »</blockquote>
-        <figcaption>Prénom<span>Soin profond</span></figcaption>
+        <blockquote>« Mes cheveux abîmés ont retrouvé leur brillance après le botox capillaire. »</blockquote>
+        <figcaption>Prénom<span>Botox capillaire</span></figcaption>
       </figure>
     </div>
 
     <div class="avis-cta reveal">
-      <!-- LIEN : remplacez # par le lien de votre fiche Google -->
-      <a href="#" class="link"><span>Voir tous nos avis Google</span></a>
+      <a href="#reserver" class="link" data-reservation><span>Voir tous nos avis sur Planity</span></a>
     </div>
   </div>
 </section>
@@ -702,42 +702,43 @@ dialog p { font-size: .95rem; }
     <div class="tarifs__intro">
       <p class="eyebrow reveal">Tarifs &amp; réservation</p>
       <h2 class="reveal">Réservez votre <em>rendez&#8209;vous</em></h2>
-      <p class="reveal">Choisissez votre prestation et réservez en quelques secondes. Un doute sur le soin à choisir ? Appelez-nous, on vous conseille.</p>
+      <p class="reveal">Choisissez votre prestation et réservez en quelques secondes sur Planity. Un doute sur le lissage à choisir ? Appelez-nous, on vous conseille.</p>
       <a href="tel:+33123456789" class="btn btn--ghost reveal">Appeler le 01 23 45 67 89</a>
-      <p class="tarifs__note reveal">Tarifs indicatifs pour cheveux courts à mi-longs. Supplément possible selon la longueur et l'épaisseur.</p>
+      <p class="tarifs__note reveal">Le prix d’un lissage dépend de la longueur et de l’épaisseur des cheveux. Tarif exact affiché sur Planity.</p>
     </div>
 
-    <!-- DURÉES ET PRIX : à vérifier / adapter -->
+    <!-- PRESTATIONS, DURÉES ET PRIX : à vérifier et compléter (remplacez XX)
+         avec les tarifs affichés sur votre page Planity -->
     <ul class="carte-tarifs">
       <li class="tarif reveal">
-        <h3>Coupe femme</h3>
-        <p class="tarif__details">Shampoing, coupe &amp; coiffage · 45 min</p>
-        <p class="tarif__prix">35 €</p>
-        <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver une coupe femme">Réserver</a>
+        <h3>Lissage brésilien</h3>
+        <p class="tarif__details">Diagnostic, lissage &amp; brushing · 2 h 30</p>
+        <p class="tarif__prix"><small>dès</small> XX €</p>
+        <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Lissage brésilien">Réserver</a>
       </li>
       <li class="tarif reveal">
-        <h3>Brushing</h3>
-        <p class="tarif__details">Shampoing &amp; brushing · 30 min</p>
-        <p class="tarif__prix">25 €</p>
-        <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver un brushing">Réserver</a>
+        <h3>Lissage au tanin</h3>
+        <p class="tarif__details">Sans formol, adapté aux cheveux sensibles · 2 h 30</p>
+        <p class="tarif__prix"><small>dès</small> XX €</p>
+        <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Lissage au tanin">Réserver</a>
       </li>
       <li class="tarif reveal">
-        <h3>Balayage</h3>
-        <p class="tarif__details">Éclaircissement, patine &amp; coiffage · 2 h 30</p>
-        <p class="tarif__prix"><small>dès</small> 90 €</p>
-        <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver un balayage">Réserver</a>
+        <h3>Lissage à la kératine</h3>
+        <p class="tarif__details">Discipline et brillance · 2 h</p>
+        <p class="tarif__prix"><small>dès</small> XX €</p>
+        <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Lissage à la kératine">Réserver</a>
       </li>
       <li class="tarif reveal">
-        <h3>Coloration</h3>
-        <p class="tarif__details">Couleur racines ou complète &amp; coiffage · 1 h 30</p>
-        <p class="tarif__prix">60 €</p>
-        <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver une coloration">Réserver</a>
+        <h3>Botox capillaire</h3>
+        <p class="tarif__details">Soin réparateur en profondeur · 1 h 30</p>
+        <p class="tarif__prix"><small>dès</small> XX €</p>
+        <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Botox capillaire">Réserver</a>
       </li>
       <li class="tarif reveal">
-        <h3>Soin profond</h3>
-        <p class="tarif__details">Diagnostic, soin &amp; massage crânien · 30 min</p>
-        <p class="tarif__prix">30 €</p>
-        <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver un soin profond">Réserver</a>
+        <h3>Coupe &amp; brushing</h3>
+        <p class="tarif__details">Shampoing, coupe &amp; brushing · 45 min</p>
+        <p class="tarif__prix"><small>dès</small> XX €</p>
+        <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Coupe &amp; brushing">Réserver</a>
       </li>
     </ul>
   </div>
@@ -783,7 +784,7 @@ dialog p { font-size: .95rem; }
           <textarea id="message" name="message" required></textarea>
         </div>
         <!-- Champs utiles à Formspree -->
-        <input type="hidden" name="_subject" value="Nouveau message depuis le site Nom du Salon">
+        <input type="hidden" name="_subject" value="Nouveau message depuis le site L’Enseigne du Lissage">
         <input class="form__hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit" class="btn">Envoyer le message</button>
         <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
@@ -792,13 +793,14 @@ dialog p { font-size: .95rem; }
       <div class="infos reveal" data-delai="1">
         <div>
           <h3>Adresse</h3>
-          <p>12 rue Exemple<br>00000 VILLE</p>
+          <p>55 rue Serpenoise<br>57000 Metz</p>
         </div>
         <div>
           <h3>Horaires</h3>
           <ul class="horaires">
-            <li><span>Mardi – Samedi</span><span>9h – 19h</span></li>
-            <li><span>Dimanche – Lundi</span><span>Fermé</span></li>
+            <!-- HORAIRES : à vérifier -->
+            <li><span>Lundi – Samedi</span><span>9h – 19h</span></li>
+            <li><span>Dimanche</span><span>Fermé</span></li>
           </ul>
         </div>
         <div>
@@ -809,8 +811,8 @@ dialog p { font-size: .95rem; }
         </div>
         <!-- CARTE : remplacez l'adresse dans src (gardez les + entre les mots) -->
         <iframe class="carte"
-          title="Plan d'accès au salon Nom du Salon"
-          src="https://www.google.com/maps?q=12+rue+Exemple+00000+VILLE&amp;output=embed"
+          title="Plan d'accès au salon L’Enseigne du Lissage"
+          src="https://www.google.com/maps?q=55+rue+Serpenoise+57000+Metz&amp;output=embed"
           loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
@@ -826,21 +828,21 @@ dialog p { font-size: .95rem; }
   <div class="container">
     <div class="footer__grid">
       <div>
-        <a href="#accueil" class="logo">Nom du Salon</a>
-        <p>Salon de coiffure à VILLE.<br>Coupes, couleurs &amp; soins sur mesure.</p>
+        <a href="#accueil" class="logo">L’Enseigne <em>du Lissage</em></a>
+        <p>Salon de coiffure à Metz.<br>Lissages &amp; soins sur mesure.</p>
         <a href="#reserver" class="btn btn--light btn--small" data-reservation>Prendre rendez-vous</a>
       </div>
       <div>
         <h4>Horaires</h4>
         <ul>
-          <li>Mar – Sam · 9h – 19h</li>
-          <li>Dim – Lun · Fermé</li>
+          <li>Lun – Sam · 9h – 19h</li>
+          <li>Dimanche · Fermé</li>
         </ul>
       </div>
       <div>
         <h4>Contact</h4>
         <ul>
-          <li>12 rue Exemple, 00000 VILLE</li>
+          <li>55 rue Serpenoise, 57000 Metz</li>
           <li><a href="tel:+33123456789">01 23 45 67 89</a></li>
           <li><a href="mailto:contact@votresalon.fr">contact@votresalon.fr</a></li>
         </ul>
@@ -854,7 +856,7 @@ dialog p { font-size: .95rem; }
       </div>
     </div>
     <div class="footer__bas">
-      <span>© <span id="annee">2026</span> Nom du Salon · Tous droits réservés</span>
+      <span>© <span id="annee">2026</span> L’Enseigne du Lissage · Tous droits réservés</span>
       <button type="button" id="ouvrir-mentions">Mentions légales</button>
     </div>
   </div>
@@ -867,8 +869,8 @@ dialog p { font-size: .95rem; }
   <button class="dialog__close" type="button" aria-label="Fermer">×</button>
   <h2 id="mentions-titre">Mentions <em>légales</em></h2>
   <h3>Éditeur du site</h3>
-  <p>Nom du Salon – [forme juridique : EI, SARL…] – [Nom et prénom du/de la responsable]<br>
-     12 rue Exemple, 00000 VILLE – 01 23 45 67 89 – contact@votresalon.fr<br>
+  <p>L’Enseigne du Lissage – [forme juridique : EI, SARL…] – [Nom et prénom du/de la responsable]<br>
+     55 rue Serpenoise, 57000 Metz – 01 23 45 67 89 – contact@votresalon.fr<br>
      SIRET : [numéro] – Directeur·rice de la publication : [nom]</p>
   <h3>Hébergement</h3>
   <p>[Nom de l'hébergeur, adresse, téléphone] – ex. Netlify, OVH, Hostinger…</p>
@@ -882,12 +884,14 @@ dialog p { font-size: .95rem; }
 /* =====================================================================
    RÉGLAGES — modifiez cette ligne pour tous les boutons « Réserver »
    Exemples :
-     Planity   : "https://www.planity.com/votre-salon-00000-ville"
+     Planity   : "https://www.planity.com/votre-salon-57000-ville"
      Treatwell : "https://www.treatwell.fr/salon/votre-salon/"
      WhatsApp  : "https://wa.me/33123456789?text=Bonjour%2C%20je%20souhaite%20prendre%20rendez-vous"
      Téléphone : "tel:+33123456789"
    ===================================================================== */
-const RESERVATION_URL = "tel:+33123456789";
+// ⚠️ Lien Planity à vérifier : ouvrez-le, et s'il ne marche pas collez ici
+// l'adresse exacte de la page Planity du salon.
+const RESERVATION_URL = "https://www.planity.com/lenseigne-du-lissage-57000-metz";
 
 document.body.classList.remove("no-js");
 
