@@ -31,7 +31,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="L’Enseigne du Lissage – Coiffeur Metz">
 <meta property="og:description" content="Le salon dédié au lissage à Metz, 55 rue Serpenoise.">
-<meta property="og:image" content="https://www.votresalon.fr/images/photo-salon.jpg">
+<meta property="og:image" content="https://www.votresalon.fr/images/photo-facade.jpg">
 <meta property="og:locale" content="fr_FR">
 
 <!-- ===== Polices Google Fonts ===== -->
@@ -48,7 +48,7 @@
   "@context": "https://schema.org",
   "@type": "HairSalon",
   "name": "L’Enseigne du Lissage",
-  "image": "https://www.votresalon.fr/images/photo-salon.jpg",
+  "image": "https://www.votresalon.fr/images/photo-facade.jpg",
   "url": "https://www.votresalon.fr/",
   "telephone": "+33387798848",
   "priceRange": "€€",
@@ -355,18 +355,25 @@ section { padding-block: var(--section); }
 /* =====================================================================
    10. BANDEAU PLEINE LARGEUR
    ===================================================================== */
-.bandeau {
-  position: relative; overflow: hidden;
-  min-height: 78vh; display: grid; place-items: center; text-align: center;
-  color: var(--creme); background: var(--brun);
+/* Mobile : la photo de la façade, puis l'encadré crème qui la chevauche */
+.bandeau { position: relative; background: var(--creme); padding: 0 0 var(--section); }
+.bandeau .photo { aspect-ratio: 4 / 3; }
+.bandeau .photo img { object-position: 40% center; }
+.bandeau__carte {
+  position: relative; z-index: 2;
+  width: min(100% - 2 * var(--gouttiere), 560px); margin: -70px auto 0;
+  padding: 48px 30px 40px; text-align: center;
+  background: var(--creme); border-radius: 999px 999px 4px 4px / 180px 180px 4px 4px;
 }
-.bandeau .photo { position: absolute; inset: 0; background: var(--brun); }
-.bandeau .photo img { object-position: center 30%; }
-.bandeau .photo::after { content: ""; position: absolute; inset: 0; z-index: 2; background: rgba(40,31,26,.5); }
-.bandeau .container { position: relative; z-index: 2; max-width: 760px; }
-.bandeau .eyebrow { color: var(--sable); }
-.bandeau h2 em { color: var(--sable); }
-.bandeau p { font-size: 1.15rem; margin-inline: auto; max-width: 46ch; margin-bottom: 2em; }
+.bandeau__carte p { margin-inline: auto; max-width: 42ch; margin-bottom: 1.8em; color: var(--brun-doux); }
+/* Ordinateur : grande photo plein écran, encadré en bas à gauche (l'enseigne reste visible) */
+@media (min-width: 900px) {
+  .bandeau { min-height: 88vh; padding: 0; display: flex; align-items: flex-end; justify-content: flex-start; }
+  .bandeau .photo { position: absolute; inset: 0; aspect-ratio: auto; }
+  .bandeau .photo img { object-position: center 30%; }
+  .bandeau__carte { width: 440px; margin: 0 0 6vh 5vw; padding: 50px 40px 40px; }
+  .bandeau__carte h2 { font-size: 3.4rem; }
+}
 
 /* =====================================================================
    11. AVIS CLIENTES
@@ -559,7 +566,7 @@ dialog p { font-size: .95rem; }
 <section class="hero" id="accueil" aria-label="Accueil">
   <div class="hero__photo">
     <!-- PHOTO : images/photo-salon.jpg (intérieur du salon, format paysage) -->
-    <img src="images/photo-salon.jpg" alt="Intérieur lumineux du salon L’Enseigne du Lissage à Metz : miroirs dorés, fauteuils de coiffure et coin d'attente" fetchpriority="high">
+    <img src="images/photo-salon.jpg" alt="Intérieur lumineux du salon L’Enseigne du Lissage à Metz : miroirs dorés, fauteuils de coiffure et coin d’attente" fetchpriority="high" width="1084" height="722">
   </div>
   <div class="container">
     <p class="eyebrow reveal">Salon de coiffure · Metz</p>
@@ -630,7 +637,7 @@ dialog p { font-size: .95rem; }
       <article class="service reveal" data-delai="1">
         <!-- PHOTO : images/photo-soins.jpg -->
         <div class="photo arche" data-nom="photo-soins.jpg">
-          <img src="images/photo-soins.jpg" alt="Bacs à shampoing et produits de soin professionnels du salon" loading="lazy" width="773" height="460">
+          <img src="images/photo-soins.jpg" alt="Bacs à shampoing et produits de soin professionnels du salon" loading="lazy" width="1600" height="974">
         </div>
         <span class="service__num">02</span>
         <h3>Soins</h3>
@@ -639,9 +646,9 @@ dialog p { font-size: .95rem; }
       </article>
 
       <article class="service reveal" data-delai="2">
-        <!-- PHOTO : images/photo-coupe.jpg (petite image : à remplacer par une plus grande) -->
+        <!-- PHOTO : images/photo-coupe.jpg -->
         <div class="photo arche" data-nom="photo-coupe.jpg">
-          <img src="images/photo-coupe.jpg" alt="Ciseaux, peignes et brosse de coiffure posés sur une table claire" loading="lazy" width="236" height="420">
+          <img src="images/photo-coupe.jpg" alt="Ciseaux, peignes, brosse ronde et vaporisateur de coiffure" loading="lazy" width="1080" height="1350">
         </div>
         <span class="service__num">03</span>
         <h3>Couleurs &amp; brushings</h3>
@@ -656,15 +663,15 @@ dialog p { font-size: .95rem; }
      4. BANDEAU PLEINE LARGEUR
      ================================================================ -->
 <section class="bandeau" aria-label="Prenez soin de vos cheveux">
-  <!-- PHOTO : images/photo-salon-miroirs.jpg (grand format paysage) -->
+  <!-- PHOTO : images/photo-facade.jpg (devanture du salon, grand format paysage) -->
   <div class="photo">
-    <img src="images/photo-salon-miroirs.jpg" alt="Postes de coiffage du salon avec grands miroirs dorés" loading="lazy">
+    <img src="images/photo-facade.jpg" alt="Devanture du salon L’Enseigne du Lissage, 55 rue Serpenoise à Metz" loading="lazy" width="1600" height="965">
   </div>
-  <div class="container">
-    <p class="eyebrow reveal">Un moment pour vous</p>
-    <h2 class="reveal">Prenez soin de <em>vos cheveux</em></h2>
-    <p class="reveal">Après votre lissage, on vous explique comment le faire durer : shampoing adapté, gestes à éviter, soins à la maison.</p>
-    <a href="#reserver" class="btn btn--light reveal" data-reservation>Réserver mon moment</a>
+  <div class="bandeau__carte reveal">
+    <p class="eyebrow">55 rue Serpenoise · Metz</p>
+    <h2>Prenez soin de <em>vos cheveux</em></h2>
+    <p>À deux pas de la place de la République. Après votre lissage, on vous explique comment le faire durer : shampoing adapté, gestes à éviter, soins à la maison.</p>
+    <a href="#reserver" class="btn" data-reservation>Réserver mon moment</a>
   </div>
 </section>
 
