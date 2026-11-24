@@ -7,8 +7,8 @@
   ║                                                                  ║
   ║  Pour personnaliser : utilisez « Rechercher / Remplacer » sur    ║
   ║  ces repères (ils apparaissent partout où il faut les changer) : ║
-  ║    01 23 45 67 89      → votre téléphone (affiché)               ║
-  ║    +33123456789        → votre téléphone (format international)  ║
+  ║    03 87 79 88 48      → votre téléphone (affiché)               ║
+  ║    +33387798848        → votre téléphone (format international)  ║
   ║    contact@votresalon.fr → votre email                           ║
   ║    votresalon          → votre compte Instagram (sans le @)      ║
   ║    https://www.votresalon.fr → l'adresse de votre site           ║
@@ -53,7 +53,7 @@
   "name": "L’Enseigne du Lissage",
   "image": "https://www.votresalon.fr/images/photo-salon.jpg",
   "url": "https://www.votresalon.fr/",
-  "telephone": "+33123456789",
+  "telephone": "+33387798848",
   "email": "contact@votresalon.fr",
   "priceRange": "€€",
   "address": {
@@ -588,7 +588,7 @@ dialog p { font-size: .95rem; }
       <span>Lun – Sam · 9h – 19h</span>
       <!-- NOTE : à mettre à jour de temps en temps -->
       <span>★ 4,9/5 · 322 avis Planity</span>
-      <a href="tel:+33123456789">01 23 45 67 89</a>
+      <a href="tel:+33387798848">03 87 79 88 48</a>
     </div>
   </div>
 </section>
@@ -758,8 +758,13 @@ dialog p { font-size: .95rem; }
         <button type="button" role="tab" id="onglet-brushings" aria-controls="panneau-brushings" aria-selected="false" tabindex="-1">Brushings &amp; coupes</button>
         <button type="button" role="tab" id="onglet-couleurs" aria-controls="panneau-couleurs" aria-selected="false" tabindex="-1">Couleurs</button>
         <button type="button" role="tab" id="onglet-lumieres" aria-controls="panneau-lumieres" aria-selected="false" tabindex="-1">Lumières</button>
+        <button type="button" role="tab" id="onglet-gloss" aria-controls="panneau-gloss" aria-selected="false" tabindex="-1">Gloss &amp; patine</button>
+        <button type="button" role="tab" id="onglet-permanentes" aria-controls="panneau-permanentes" aria-selected="false" tabindex="-1">Permanentes</button>
+        <button type="button" role="tab" id="onglet-chignons" aria-controls="panneau-chignons" aria-selected="false" tabindex="-1">Chignons</button>
         <button type="button" role="tab" id="onglet-extensions" aria-controls="panneau-extensions" aria-selected="false" tabindex="-1">Extensions</button>
+        <button type="button" role="tab" id="onglet-kids" aria-controls="panneau-kids" aria-selected="false" tabindex="-1">Enfants</button>
         <button type="button" role="tab" id="onglet-messieurs" aria-controls="panneau-messieurs" aria-selected="false" tabindex="-1">Messieurs</button>
+        <button type="button" role="tab" id="onglet-carte" aria-controls="panneau-carte" aria-selected="false" tabindex="-1">À la carte</button>
       </div>
       <div class="panneau" role="tabpanel" id="panneau-lissages" aria-labelledby="onglet-lissages">
         <p class="panneau__intro">Tous nos lissages sont garantis sans formol, pour tous types de cheveux, et adaptés aux femmes enceintes, allaitantes et aux enfants.</p>
@@ -767,23 +772,23 @@ dialog p { font-size: .95rem; }
           <li class="tarif" data-prix="350|400|450|500" data-duree="2 h 05|2 h 45|2 h 45|2 h 55">
             <h4>Lissage Indien® <span class="tarif__taille js-taille">S</span></h4>
             <p class="tarif__details">Nanoplastie dernière génération enrichie en collagène · <span class="js-duree">2 h 05</span></p>
-            <p class="tarif__prix"><span class="js-prix">350</span> €</p>
+            <p class="tarif__prix"><span class="js-prix">350 €</span></p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Lissage Indien®">Réserver</a>
           </li>
           <li class="tarif" data-prix="300|350|400|450" data-duree="2 h 20|2 h 45|3 h|3 h 15">
             <h4>Lissage Dubaï® <span class="tarif__taille js-taille">S</span></h4>
             <p class="tarif__details">Lissage intense qui lisse jusqu’à 100 % des cheveux · <span class="js-duree">2 h 20</span></p>
-            <p class="tarif__prix"><span class="js-prix">300</span> €</p>
+            <p class="tarif__prix"><span class="js-prix">300 €</span></p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Lissage Dubaï®">Réserver</a>
           </li>
           <li class="tarif" data-prix="199|269|299|349" data-duree="2 h 15|2 h 25|2 h 35|2 h 45">
             <h4>Lissage Français® <span class="tarif__taille js-taille">S</span></h4>
             <p class="tarif__details">Soin lissant à l’huile de soja et à l’huile de coco · <span class="js-duree">2 h 15</span></p>
-            <p class="tarif__prix"><span class="js-prix">199</span> €</p>
+            <p class="tarif__prix"><span class="js-prix">199 €</span></p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Lissage Français®">Réserver</a>
           </li>
           <li class="tarif">
-            <h4>Dose supplémentaire lissage </h4>
+            <h4>Dose supplémentaire lissage</h4>
             <p class="tarif__details">15 min</p>
             <p class="tarif__prix">20 €</p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Dose supplémentaire lissage">Réserver</a>
@@ -796,23 +801,29 @@ dialog p { font-size: .95rem; }
           <li class="tarif" data-prix="93|104|114|134" data-duree="1 h 30|1 h 45|2 h|2 h">
             <h4>Soin Botox <span class="tarif__taille js-taille">S</span></h4>
             <p class="tarif__details">Kératine, huile d’argan, huile de coco, protéine de soie · <span class="js-duree">1 h 30</span></p>
-            <p class="tarif__prix"><span class="js-prix">93</span> €</p>
+            <p class="tarif__prix"><span class="js-prix">93 €</span></p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Soin Botox">Réserver</a>
           </li>
           <li class="tarif" data-prix="99|129|159|169" data-duree="1 h 30|1 h 40|2 h|2 h">
             <h4>Soin Caviar <span class="tarif__taille js-taille">S</span></h4>
             <p class="tarif__details">Pour cheveux secs, déshydratés, abîmés ou sensibilisés · <span class="js-duree">1 h 30</span></p>
-            <p class="tarif__prix"><span class="js-prix">99</span> €</p>
+            <p class="tarif__prix"><span class="js-prix">99 €</span></p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Soin Caviar">Réserver</a>
           </li>
           <li class="tarif" data-prix="58|69|79|91" data-duree="1 h|1 h 15|1 h 30|1 h 45">
             <h4>Soin Chewing-gum <span class="tarif__taille js-taille">S</span></h4>
             <p class="tarif__details">Thérapie pour cheveux ayant subi des traitements · <span class="js-duree">1 h</span></p>
-            <p class="tarif__prix"><span class="js-prix">58</span> €</p>
+            <p class="tarif__prix"><span class="js-prix">58 €</span></p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Soin Chewing-gum">Réserver</a>
           </li>
+          <li class="tarif" data-prix="29|39|47|54" data-duree="1 h 30|1 h 30|1 h 30|1 h 30">
+            <h4>Gommage <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details"><span class="js-duree">1 h 30</span> · sur appel uniquement</p>
+            <p class="tarif__prix"><span class="js-prix">29 €</span></p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Gommage">Appeler</a>
+          </li>
           <li class="tarif">
-            <h4>Rituel cuir chevelu </h4>
+            <h4>Rituel cuir chevelu</h4>
             <p class="tarif__details">Massage aux huiles essentielles, lotion adaptée · 15 min</p>
             <p class="tarif__prix">20 €</p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Rituel cuir chevelu">Réserver</a>
@@ -825,23 +836,23 @@ dialog p { font-size: .95rem; }
           <li class="tarif" data-prix="30|36|41|48" data-duree="30 min|45 min|1 h|1 h">
             <h4>Bain + brushing <span class="tarif__taille js-taille">S</span></h4>
             <p class="tarif__details">Shampoing et brushing · <span class="js-duree">30 min</span></p>
-            <p class="tarif__prix"><span class="js-prix">30</span> €</p>
+            <p class="tarif__prix"><span class="js-prix">30 €</span></p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Bain + brushing">Réserver</a>
           </li>
           <li class="tarif" data-prix="49|55|60|67" data-duree="45 min|1 h|1 h|1 h 15">
             <h4>Bain + coupe + brushing <span class="tarif__taille js-taille">S</span></h4>
             <p class="tarif__details">Shampoing, coupe et brushing · <span class="js-duree">45 min</span></p>
-            <p class="tarif__prix"><span class="js-prix">49</span> €</p>
+            <p class="tarif__prix"><span class="js-prix">49 €</span></p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Bain + coupe + brushing">Réserver</a>
           </li>
           <li class="tarif">
-            <h4>Boucles / wavy </h4>
+            <h4>Boucles / wavy</h4>
             <p class="tarif__details">Boucles réalisées sur cheveux fraîchement lavés · 30 min</p>
             <p class="tarif__prix">20 €</p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Boucles / wavy">Réserver</a>
           </li>
           <li class="tarif">
-            <h4>Frange ou nuque </h4>
+            <h4>Frange ou nuque</h4>
             <p class="tarif__details">10 min</p>
             <p class="tarif__prix">5 €</p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Frange ou nuque">Réserver</a>
@@ -854,23 +865,23 @@ dialog p { font-size: .95rem; }
           <li class="tarif" data-prix="66|71|77|84" data-duree="1 h 30|1 h 45|2 h|2 h">
             <h4>Coloration racines &amp; brushing <span class="tarif__taille js-taille">S</span></h4>
             <p class="tarif__details">Bain, coloration des racines et brushing · <span class="js-duree">1 h 30</span></p>
-            <p class="tarif__prix"><span class="js-prix">66</span> €</p>
-            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Coloration racines &amp; brushing">Réserver</a>
+            <p class="tarif__prix"><span class="js-prix">66 €</span></p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Coloration racines & brushing">Réserver</a>
           </li>
           <li class="tarif" data-prix="81|86|101|126" data-duree="1 h 30|1 h 45|2 h|2 h 10">
             <h4>Coloration complète <span class="tarif__taille js-taille">S</span></h4>
             <p class="tarif__details">Shampoing et coloration complète · <span class="js-duree">1 h 30</span></p>
-            <p class="tarif__prix"><span class="js-prix">81</span> €</p>
+            <p class="tarif__prix"><span class="js-prix">81 €</span></p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Coloration complète">Réserver</a>
           </li>
           <li class="tarif" data-prix="71|76|82|89" data-duree="1 h 30|1 h 30|1 h 45|2 h">
             <h4>Coloration végétale &amp; brushing <span class="tarif__taille js-taille">S</span></h4>
             <p class="tarif__details">Bain, coloration végétale et brushing · <span class="js-duree">1 h 30</span></p>
-            <p class="tarif__prix"><span class="js-prix">71</span> €</p>
-            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Coloration végétale &amp; brushing">Réserver</a>
+            <p class="tarif__prix"><span class="js-prix">71 €</span></p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Coloration végétale & brushing">Réserver</a>
           </li>
           <li class="tarif">
-            <h4>+ Coupe </h4>
+            <h4>+ Coupe</h4>
             <p class="tarif__details">À ajouter après une prestation · 20 min</p>
             <p class="tarif__prix">19 €</p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : + Coupe">Réserver</a>
@@ -883,20 +894,77 @@ dialog p { font-size: .95rem; }
           <li class="tarif" data-prix="160|173|186|200" data-duree="2 h 35|2 h 50|3 h 20|3 h 35">
             <h4>Ombré hair, gloss, coupe &amp; brushing <span class="tarif__taille js-taille">S</span></h4>
             <p class="tarif__details">Notre spécialité, l’ombré hair sur mesure · <span class="js-duree">2 h 35</span></p>
-            <p class="tarif__prix"><span class="js-prix">160</span> €</p>
-            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Ombré hair, gloss, coupe &amp; brushing">Réserver</a>
+            <p class="tarif__prix"><span class="js-prix">160 €</span></p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Ombré hair, gloss, coupe & brushing">Réserver</a>
           </li>
           <li class="tarif" data-prix="141|154|167|181" data-duree="2 h 20|2 h 35|3 h 05|3 h 20">
             <h4>Ombré hair, gloss &amp; brushing <span class="tarif__taille js-taille">S</span></h4>
             <p class="tarif__details">Ombré hair sur mesure, sans coupe · <span class="js-duree">2 h 20</span></p>
-            <p class="tarif__prix"><span class="js-prix">141</span> €</p>
-            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Ombré hair, gloss &amp; brushing">Réserver</a>
+            <p class="tarif__prix"><span class="js-prix">141 €</span></p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Ombré hair, gloss & brushing">Réserver</a>
           </li>
           <li class="tarif" data-prix="115|132|148|168" data-duree="2 h 05|2 h 35|2 h 50|3 h 05">
             <h4>Sunlight &amp; brushing <span class="tarif__taille js-taille">S</span></h4>
             <p class="tarif__details">Un coup d’éclat lumineux · <span class="js-duree">2 h 05</span></p>
-            <p class="tarif__prix"><span class="js-prix">115</span> €</p>
-            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Sunlight &amp; brushing">Réserver</a>
+            <p class="tarif__prix"><span class="js-prix">115 €</span></p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Sunlight & brushing">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>+ Coupe</h4>
+            <p class="tarif__details">5 min</p>
+            <p class="tarif__prix">19 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : + Coupe">Réserver</a>
+          </li>
+        </ul>
+      </div>
+      <div class="panneau" role="tabpanel" id="panneau-gloss" aria-labelledby="onglet-gloss" hidden>
+        <p class="panneau__intro">Le gloss apporte de la brillance, sublime un reflet pour un effet naturel ou neutralise un reflet. Votre coloriste peut l’appliquer après une technique.</p>
+        <ul class="carte-tarifs">
+          <li class="tarif" data-prix="50|59|67|78" data-duree="1 h|1 h 15|1 h 30|1 h 30">
+            <h4>Gloss &amp; brushing <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details"><span class="js-duree">1 h</span></p>
+            <p class="tarif__prix"><span class="js-prix">50 €</span></p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Gloss & brushing">Réserver</a>
+          </li>
+          <li class="tarif" data-prix="22|25|28|32" data-duree="30 min|15 min|15 min|15 min">
+            <h4>Gloss seul <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details"><span class="js-duree">30 min</span> · sur appel uniquement</p>
+            <p class="tarif__prix"><span class="js-prix">22 €</span></p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Gloss seul">Appeler</a>
+          </li>
+        </ul>
+      </div>
+      <div class="panneau" role="tabpanel" id="panneau-permanentes" aria-labelledby="onglet-permanentes" hidden>
+        <p class="panneau__intro">Les permanentes ne sont pas réalisables sur cheveux décolorés ou méchés. Appelez-nous avant de réserver pour être bien conseillée.</p>
+        <ul class="carte-tarifs">
+          <li class="tarif" data-prix="83|103|133|" data-duree="1 h 50|2 h 20|2 h 35|">
+            <h4>Permanente <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details"><span class="js-duree">1 h 50</span></p>
+            <p class="tarif__prix"><span class="js-prix">83 €</span></p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Permanente">Réserver</a>
+          </li>
+        </ul>
+      </div>
+      <div class="panneau" role="tabpanel" id="panneau-chignons" aria-labelledby="onglet-chignons" hidden>
+        <p class="panneau__intro">Pour une soirée, un événement ou le grand jour.</p>
+        <ul class="carte-tarifs">
+          <li class="tarif">
+            <h4>Chignon soirée</h4>
+            <p class="tarif__details">45 min</p>
+            <p class="tarif__prix"><small>dès</small> 40 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Chignon soirée">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Chignon élaboré</h4>
+            <p class="tarif__details">1 h 10</p>
+            <p class="tarif__prix"><small>dès</small> 60 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Chignon élaboré">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Chignon mariage</h4>
+            <p class="tarif__details">Essai + jour J · 1 h</p>
+            <p class="tarif__prix">110 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Chignon mariage">Réserver</a>
           </li>
         </ul>
       </div>
@@ -904,22 +972,45 @@ dialog p { font-size: .95rem; }
         <p class="panneau__intro">Extensions à bandes adhésives, posées à froid.</p>
         <ul class="carte-tarifs">
           <li class="tarif">
-            <h4>Devis pose d’extensions </h4>
+            <h4>Devis pose d’extensions</h4>
             <p class="tarif__details">Acompte de 50 % à la commande · 20 min</p>
             <p class="tarif__prix"><small>Sur devis</small></p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Devis pose d’extensions">Réserver</a>
           </li>
           <li class="tarif">
-            <h4>Pose d’extensions </h4>
+            <h4>Pose d’extensions</h4>
             <p class="tarif__details">Extensions non fournies dans cette prestation · 1 h</p>
             <p class="tarif__prix"><small>Sur devis</small></p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Pose d’extensions">Réserver</a>
           </li>
           <li class="tarif">
-            <h4>Dépose d’extensions </h4>
-            <p class="tarif__details">Tarif de la dépose uniquement · 1 h</p>
+            <h4>Dépose d’extensions</h4>
+            <p class="tarif__details">1 h</p>
             <p class="tarif__prix"><small>Sur devis</small></p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Dépose d’extensions">Réserver</a>
+          </li>
+        </ul>
+      </div>
+      <div class="panneau" role="tabpanel" id="panneau-kids" aria-labelledby="onglet-kids" hidden>
+        <p class="panneau__intro">Des coupes tout en douceur pour les plus petits.</p>
+        <ul class="carte-tarifs">
+          <li class="tarif">
+            <h4>Shampoing + coupe fille</h4>
+            <p class="tarif__details">De 3 à 10 ans · 30 min</p>
+            <p class="tarif__prix">22 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Shampoing + coupe fille">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Shampoing + coupe garçon</h4>
+            <p class="tarif__details">De 3 à 10 ans · 30 min</p>
+            <p class="tarif__prix">19 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Shampoing + coupe garçon">Réserver</a>
+          </li>
+          <li class="tarif">
+            <h4>Enfant de moins de 3 ans</h4>
+            <p class="tarif__details">30 min</p>
+            <p class="tarif__prix">15 €</p>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Enfant de moins de 3 ans">Réserver</a>
           </li>
         </ul>
       </div>
@@ -927,58 +1018,153 @@ dialog p { font-size: .95rem; }
         <p class="panneau__intro">Coupes, barbe et soins pour hommes.</p>
         <ul class="carte-tarifs">
           <li class="tarif">
-            <h4>Shampoing, coupe &amp; coiffage </h4>
+            <h4>Shampoing, coupe &amp; coiffage</h4>
             <p class="tarif__details">30 min</p>
             <p class="tarif__prix">25 €</p>
-            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Shampoing, coupe &amp; coiffage">Réserver</a>
+            <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Shampoing, coupe & coiffage">Réserver</a>
           </li>
           <li class="tarif">
-            <h4>Coupe tondeuse / couronne </h4>
+            <h4>Coupe tondeuse / couronne</h4>
             <p class="tarif__details">30 min</p>
             <p class="tarif__prix">17 €</p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Coupe tondeuse / couronne">Réserver</a>
           </li>
           <li class="tarif">
-            <h4>Rituel barbe </h4>
+            <h4>Rituel barbe</h4>
             <p class="tarif__details">Taille, rasage, serviette chaude et froide, soin · 30 min</p>
             <p class="tarif__prix">25 €</p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Rituel barbe">Réserver</a>
           </li>
           <li class="tarif">
-            <h4>Barbe entretien </h4>
+            <h4>Barbe entretien</h4>
             <p class="tarif__details">Entretien des contours · 15 min</p>
             <p class="tarif__prix">15 €</p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Barbe entretien">Réserver</a>
           </li>
           <li class="tarif">
-            <h4>Lissage homme </h4>
+            <h4>Lissage homme</h4>
             <p class="tarif__details">1 h 30</p>
             <p class="tarif__prix"><small>dès</small> 70 €</p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Lissage homme">Réserver</a>
           </li>
           <li class="tarif">
-            <h4>Permanente </h4>
+            <h4>Permanente</h4>
             <p class="tarif__details">1 h 50</p>
             <p class="tarif__prix"><small>dès</small> 72 €</p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Permanente">Réserver</a>
           </li>
           <li class="tarif">
-            <h4>Décoloration </h4>
+            <h4>Décoloration</h4>
             <p class="tarif__details">30 min</p>
             <p class="tarif__prix"><small>dès</small> 28 €</p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Décoloration">Réserver</a>
           </li>
           <li class="tarif">
-            <h4>Cover 5’ </h4>
+            <h4>Cover 5’</h4>
             <p class="tarif__details">Service rapide qui estompe les cheveux blancs</p>
             <p class="tarif__prix">17 €</p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Cover 5’">Réserver</a>
           </li>
           <li class="tarif">
-            <h4>Rituel cuir chevelu </h4>
+            <h4>Rituel cuir chevelu</h4>
             <p class="tarif__details">Massage aux huiles essentielles · 15 min</p>
             <p class="tarif__prix">20 €</p>
             <a href="#contact" class="btn btn--small" data-reservation aria-label="Réserver : Rituel cuir chevelu">Réserver</a>
+          </li>
+        </ul>
+      </div>
+      <div class="panneau" role="tabpanel" id="panneau-carte" aria-labelledby="onglet-carte" hidden>
+        <p class="panneau__intro">Des prestations à ajouter en complément. Elles se réservent uniquement par téléphone.</p>
+        <ul class="carte-tarifs">
+          <li class="tarif">
+            <h4>Bain</h4>
+            <p class="tarif__details">15 min · sur appel uniquement</p>
+            <p class="tarif__prix">6 €</p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Bain">Appeler</a>
+          </li>
+          <li class="tarif">
+            <h4>Soin express</h4>
+            <p class="tarif__details">5 min · sur appel uniquement</p>
+            <p class="tarif__prix">7 €</p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Soin express">Appeler</a>
+          </li>
+          <li class="tarif">
+            <h4>Soin hydratant</h4>
+            <p class="tarif__details">10 min · sur appel uniquement</p>
+            <p class="tarif__prix">12 €</p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Soin hydratant">Appeler</a>
+          </li>
+          <li class="tarif">
+            <h4>Dose supplémentaire de lissage pour Botox</h4>
+            <p class="tarif__details">15 min · sur appel uniquement</p>
+            <p class="tarif__prix">20 €</p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Dose supplémentaire de lissage pour Botox">Appeler</a>
+          </li>
+          <li class="tarif">
+            <h4>Coupe</h4>
+            <p class="tarif__details">30 min · sur appel uniquement</p>
+            <p class="tarif__prix">19 €</p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Coupe">Appeler</a>
+          </li>
+          <li class="tarif" data-prix="22|28|33|40" data-duree="30 min|40 min|45 min|1 h">
+            <h4>Brushing <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details"><span class="js-duree">30 min</span> · sur appel uniquement</p>
+            <p class="tarif__prix"><span class="js-prix">22 €</span></p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Brushing">Appeler</a>
+          </li>
+          <li class="tarif">
+            <h4>Coloration racines L’Oréal</h4>
+            <p class="tarif__details">30 min · sur appel uniquement</p>
+            <p class="tarif__prix">38 €</p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Coloration racines L’Oréal">Appeler</a>
+          </li>
+          <li class="tarif">
+            <h4>Racines INOA</h4>
+            <p class="tarif__details">15 min · sur appel uniquement</p>
+            <p class="tarif__prix">43 €</p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Racines INOA">Appeler</a>
+          </li>
+          <li class="tarif" data-prix="44|50|62|80" data-duree="10 min|30 min|30 min|30 min">
+            <h4>Couleur complète <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details"><span class="js-duree">10 min</span> · sur appel uniquement</p>
+            <p class="tarif__prix"><span class="js-prix">44 €</span></p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Couleur complète">Appeler</a>
+          </li>
+          <li class="tarif" data-prix="49|56|68|86" data-duree="30 min|30 min|30 min|30 min">
+            <h4>Coloration complète INOA <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details"><span class="js-duree">30 min</span> · sur appel uniquement</p>
+            <p class="tarif__prix"><span class="js-prix">49 €</span></p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Coloration complète INOA">Appeler</a>
+          </li>
+          <li class="tarif" data-prix="56|62|66|79" data-duree="30 min|30 min|30 min|30 min">
+            <h4>Botox à la carte <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details"><span class="js-duree">30 min</span> · sur appel uniquement</p>
+            <p class="tarif__prix"><span class="js-prix">56 €</span></p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Botox à la carte">Appeler</a>
+          </li>
+          <li class="tarif" data-prix="35|40|46|56" data-duree="33 min|33 min|33 min|33 min">
+            <h4>Balayage demi-tête <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details"><span class="js-duree">33 min</span> · sur appel uniquement</p>
+            <p class="tarif__prix"><span class="js-prix">35 €</span></p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Balayage demi-tête">Appeler</a>
+          </li>
+          <li class="tarif" data-prix="54|67|73|79" data-duree="45 min|45 min|1 h|1 h 15">
+            <h4>Balayage tête entière <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details"><span class="js-duree">45 min</span> · sur appel uniquement</p>
+            <p class="tarif__prix"><span class="js-prix">54 €</span></p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Balayage tête entière">Appeler</a>
+          </li>
+          <li class="tarif" data-prix="33|38|43|48" data-duree="30 min|30 min|30 min|30 min">
+            <h4>Sunlight 2 en 1 <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details"><span class="js-duree">30 min</span> · sur appel uniquement</p>
+            <p class="tarif__prix"><span class="js-prix">33 €</span></p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Sunlight 2 en 1">Appeler</a>
+          </li>
+          <li class="tarif" data-prix="87|92|96|99" data-duree="45 min|45 min|1 h|1 h 15">
+            <h4>Ombré hair <span class="tarif__taille js-taille">S</span></h4>
+            <p class="tarif__details"><span class="js-duree">45 min</span> · sur appel uniquement</p>
+            <p class="tarif__prix"><span class="js-prix">87 €</span></p>
+            <a href="tel:+33387798848" class="btn btn--small btn--ghost" aria-label="Appeler pour : Ombré hair">Appeler</a>
           </li>
         </ul>
       </div>
@@ -986,7 +1172,7 @@ dialog p { font-size: .95rem; }
 
     <div class="tarifs__bas reveal">
       <a href="#reserver" class="btn" data-reservation>Voir toutes les disponibilités</a>
-      <a href="tel:+33123456789" class="btn btn--ghost">Appeler le 01 23 45 67 89</a>
+      <a href="tel:+33387798848" class="btn btn--ghost">Appeler le 03 87 79 88 48</a>
     </div>
   </div>
 </section>
@@ -1051,7 +1237,7 @@ dialog p { font-size: .95rem; }
         </div>
         <div>
           <h3>Nous joindre</h3>
-          <p><a href="tel:+33123456789">01 23 45 67 89</a><br>
+          <p><a href="tel:+33387798848">03 87 79 88 48</a><br>
              <a href="mailto:contact@votresalon.fr">contact@votresalon.fr</a><br>
              <a href="https://www.instagram.com/votresalon/" target="_blank" rel="noopener">Instagram @votresalon</a></p>
         </div>
@@ -1089,7 +1275,7 @@ dialog p { font-size: .95rem; }
         <h4>Contact</h4>
         <ul>
           <li>55 rue Serpenoise, 57000 Metz</li>
-          <li><a href="tel:+33123456789">01 23 45 67 89</a></li>
+          <li><a href="tel:+33387798848">03 87 79 88 48</a></li>
           <li><a href="mailto:contact@votresalon.fr">contact@votresalon.fr</a></li>
         </ul>
       </div>
@@ -1116,7 +1302,7 @@ dialog p { font-size: .95rem; }
   <h2 id="mentions-titre">Mentions <em>légales</em></h2>
   <h3>Éditeur du site</h3>
   <p>L’Enseigne du Lissage – [forme juridique : EI, SARL…] – [Nom et prénom du/de la responsable]<br>
-     55 rue Serpenoise, 57000 Metz – 01 23 45 67 89 – contact@votresalon.fr<br>
+     55 rue Serpenoise, 57000 Metz – 03 87 79 88 48 – contact@votresalon.fr<br>
      SIRET : [numéro] – Directeur·rice de la publication : [nom]</p>
   <h3>Hébergement</h3>
   <p>[Nom de l'hébergeur, adresse, téléphone] – ex. Netlify, OVH, Hostinger…</p>
@@ -1133,7 +1319,7 @@ dialog p { font-size: .95rem; }
      Planity   : "https://www.planity.com/votre-salon-57000-ville"
      Treatwell : "https://www.treatwell.fr/salon/votre-salon/"
      WhatsApp  : "https://wa.me/33123456789?text=Bonjour%2C%20je%20souhaite%20prendre%20rendez-vous"
-     Téléphone : "tel:+33123456789"
+     Téléphone : "tel:+33387798848"
    ===================================================================== */
 const RESERVATION_URL = "https://www.planity.com/lenseigne-du-lissage-57000-metz";
 
@@ -1212,8 +1398,9 @@ document.querySelectorAll("[data-taille]").forEach(function (btn) {
     const t = Number(btn.dataset.taille);
     document.querySelectorAll("[data-taille]").forEach(function (b) { b.setAttribute("aria-checked", b === btn); });
     document.querySelectorAll(".tarif[data-prix]").forEach(function (li) {
-      li.querySelector(".js-prix").textContent = li.dataset.prix.split("|")[t];
-      li.querySelector(".js-duree").textContent = li.dataset.duree.split("|")[t];
+      const prix = li.dataset.prix.split("|")[t];       // vide = pas proposé dans cette longueur
+      li.querySelector(".js-prix").textContent = prix ? prix + " €" : "sur demande";
+      li.querySelector(".js-duree").textContent = li.dataset.duree.split("|")[t] || "—";
       li.querySelector(".js-taille").textContent = NOMS_TAILLES[t];
     });
   });
@@ -1242,7 +1429,7 @@ form.addEventListener("submit", async function (e) {
     form.reset();
     statut.textContent = "Merci ! Votre message a bien été envoyé, nous vous répondons très vite.";
   } catch (err) {
-    statut.textContent = "Oups, l'envoi a échoué. Appelez-nous au 01 23 45 67 89 ou réessayez.";
+    statut.textContent = "Oups, l'envoi a échoué. Appelez-nous au 03 87 79 88 48 ou réessayez.";
   } finally {
     bouton.disabled = false;
   }
