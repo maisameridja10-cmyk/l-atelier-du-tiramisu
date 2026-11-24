@@ -91,6 +91,8 @@
   --gouttiere: clamp(20px, 5vw, 48px);
   --section: clamp(88px, 12vw, 150px); /* espace vertical des sections */
   --header-h: 72px;
+  --header-compact: 58px;
+  --ease-out: cubic-bezier(.16, 1, .3, 1);   /* courbe douce utilisée pour toutes les animations */
 }
 
 /* =====================================================================
@@ -153,9 +155,11 @@ p { margin: 0 0 1.2em; }
   border: 1px solid var(--brun); border-radius: 999px;
   background: var(--brun); color: var(--creme);
   cursor: pointer; white-space: nowrap;
-  transition: background .35s ease, color .35s ease, border-color .35s ease;
+  translate: var(--mx, 0px) var(--my, 0px);   /* déplacé par l'effet magnétique (JS) */
+  transition: background .35s ease, color .35s ease, border-color .35s ease, translate .6s var(--ease-out);
 }
 .btn:hover { background: transparent; color: var(--brun); }
+.btn.is-magnet { transition: background .35s ease, color .35s ease, border-color .35s ease, translate .18s linear; }
 .btn--ghost { background: transparent; color: var(--brun); }
 .btn--ghost:hover { background: var(--brun); color: var(--creme); }
 /* Version claire, sur une photo */
@@ -225,8 +229,14 @@ section { padding-block: var(--section); }
   height: var(--header-h);
   display: flex; align-items: center;
   color: var(--creme);
-  transition: background .4s ease, color .4s ease, box-shadow .4s ease;
+  transition: background .4s ease, color .4s ease, box-shadow .4s ease, height .5s var(--ease-out);
 }
+/* En descendant, le menu se compacte */
+.header.is-compact { height: var(--header-compact); }
+.header .logo { transform-origin: left center; transition: transform .5s var(--ease-out); }
+.header.is-compact .logo { transform: scale(.86); }
+.header__actions { transform-origin: right center; transition: transform .5s var(--ease-out); }
+.header.is-compact .header__actions { transform: scale(.92); }
 /* Après un peu de défilement, le menu passe sur fond crème */
 .header.is-scrolled, .header.menu-open {
   background: rgba(246, 241, 234, .96);
@@ -279,6 +289,7 @@ section { padding-block: var(--section); }
     transition: opacity .35s, transform .35s, visibility .35s;
   }
   .menu-open .nav { opacity: 1; visibility: visible; transform: none; }
+  .header.is-compact .nav { top: var(--header-compact); height: calc(100dvh - var(--header-compact)); }
   .nav ul { flex-direction: column; gap: 4px; }
   .nav a {
     display: block; padding: 14px 0; border-bottom: 1px solid rgba(59,47,40,.1);
@@ -297,8 +308,28 @@ section { padding-block: var(--section); }
   padding: calc(var(--header-h) + 60px) 0 clamp(90px, 14vh, 150px);
   color: var(--creme);
   background: var(--brun);
+  overflow: hidden;
 }
 .hero__photo { position: absolute; inset: 0; }
+.hero__photo img { animation: hero-zoom 2.6s var(--ease-out) both; }
+@keyframes hero-zoom { from { transform: scale(1.08); } to { transform: scale(1); } }
+/* Dégradé animé : halos taupe et sable qui dérivent lentement sur la photo.
+   On anime uniquement transform → calculé par la carte graphique, fluide à 60 fps. */
+.hero__degrade {
+  position: absolute; inset: -30%; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(38% 42% at 22% 30%, rgba(184,165,138,.65), transparent 70%),
+    radial-gradient(34% 40% at 78% 68%, rgba(232,220,200,.45), transparent 70%),
+    radial-gradient(42% 48% at 58% 12%, rgba(133,113,90,.55), transparent 70%);
+  mix-blend-mode: soft-light;
+  animation: degrade 20s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes degrade {
+  0%   { transform: translate3d(-6%, -4%, 0) rotate(0deg)  scale(1); }
+  50%  { transform: translate3d(5%, 3%, 0)   rotate(10deg) scale(1.1); }
+  100% { transform: translate3d(-3%, 6%, 0)  rotate(-8deg) scale(1.04); }
+}
 .hero__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 60% center; }
 /* Voile sombre pour que le texte reste lisible sur la photo */
 .hero__photo::after {
@@ -510,19 +541,40 @@ dialog p { font-size: .95rem; }
 .dialog__close { position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border: 0; background: none; font-size: 1.6rem; cursor: pointer; color: var(--brun); }
 
 /* =====================================================================
-   15. ANIMATIONS DOUCES (apparition au défilement)
+   15. ANIMATIONS
+   Règle d'or pour rester à 60 fps : on n'anime que opacity et transform.
    ===================================================================== */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 1s ease, transform 1s cubic-bezier(.2,.7,.2,1); }
+/* Apparition au défilement : fondu + glissement vers le haut.
+   --delai est réglé automatiquement en JS pour décaler les éléments voisins. */
+.reveal {
+  opacity: 0; transform: translate3d(0, 36px, 0);
+  transition: opacity .9s var(--ease-out), transform 1.2s var(--ease-out);
+  transition-delay: var(--delai, 0s);
+}
 .reveal.is-visible { opacity: 1; transform: none; }
-.reveal[data-delai="1"] { transition-delay: .12s; }
-.reveal[data-delai="2"] { transition-delay: .24s; }
-.hero .reveal { transition-duration: 1.4s; }
+.reveal[data-delai="1"] { --delai: .12s; }
+.reveal[data-delai="2"] { --delai: .24s; }
+.hero .reveal { transition-duration: 1.4s, 1.6s; }
 
-/* Respecte le réglage « réduire les animations » du téléphone */
+/* Chiffres qui défilent : largeur stable pendant l'animation */
+[data-compteur] { font-variant-numeric: tabular-nums; }
+
+/* Changement d'onglet dans les tarifs */
+.panneau:not([hidden]) { animation: panneau-in .55s var(--ease-out); }
+@keyframes panneau-in { from { opacity: 0; transform: translate3d(0, 14px, 0); } }
+
+/* « Réduire les animations » activé sur l'appareil : on coupe TOUT */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .photo img, .photo:hover img { transition: none; transform: none; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .photo:hover img { transform: none; }
+  .btn { translate: none; }
+  .hero__degrade { display: none; }
 }
 /* Sans JavaScript, tout reste visible */
 .no-js .reveal { opacity: 1; transform: none; }
@@ -568,6 +620,7 @@ dialog p { font-size: .95rem; }
     <!-- PHOTO : images/photo-salon.jpg (intérieur du salon, format paysage) -->
     <img src="images/photo-salon.jpg" alt="Intérieur lumineux du salon L’Enseigne du Lissage à Metz : miroirs dorés, fauteuils de coiffure et coin d’attente" fetchpriority="high" width="1084" height="722">
   </div>
+  <div class="hero__degrade" aria-hidden="true"></div>
   <div class="container">
     <p class="eyebrow reveal">Salon de coiffure · Metz</p>
     <h1 class="reveal" data-delai="1">L’Enseigne <em>du Lissage</em></h1>
@@ -579,7 +632,7 @@ dialog p { font-size: .95rem; }
     <div class="hero__infos reveal" data-delai="2">
       <span>Lun – Sam · 9h – 19h</span>
       <!-- NOTE : à mettre à jour de temps en temps -->
-      <span>★ 4,9/5 · 322 avis Planity</span>
+      <span>★ <span data-compteur="4.9" data-decimales="1">4,9</span>/5 · <span data-compteur="322">322</span> avis Planity</span>
       <a href="tel:+33387798848">03 87 79 88 48</a>
     </div>
   </div>
@@ -598,8 +651,8 @@ dialog p { font-size: .95rem; }
       <p class="reveal">Lissage Indien®, Dubaï® ou Français® : tous nos lissages sont garantis sans formol, conviennent à tous les types de cheveux (frisés, bouclés, épais ou indisciplinés) et sont adaptés aux femmes enceintes, allaitantes et aux enfants. Le tout dans un salon calme et lumineux du 55 rue Serpenoise, au cœur de Metz.</p>
       <!-- CHIFFRES : à adapter (ou supprimez la liste) -->
       <ul class="chiffres reveal">
-        <li><strong>4,9</strong><span>note Planity</span></li>
-        <li><strong>322</strong><span>avis clientes</span></li>
+        <li><strong data-compteur="4.9" data-decimales="1">4,9</strong><span>note Planity</span></li>
+        <li><strong data-compteur="322">322</strong><span>avis clientes</span></li>
       </ul>
       <a href="#prestations" class="btn btn--ghost reveal">Découvrir nos prestations</a>
     </div>
@@ -684,7 +737,7 @@ dialog p { font-size: .95rem; }
       <p class="eyebrow reveal">Avis clientes</p>
       <h2 class="reveal">Elles nous font <em>confiance</em></h2>
       <!-- NOTE PLANITY : à mettre à jour de temps en temps -->
-      <p class="reveal">★★★★★ &nbsp;4,9/5 · 322 avis vérifiés sur Planity</p>
+      <p class="reveal">★★★★★ &nbsp;<span data-compteur="4.9" data-decimales="1">4,9</span>/5 · <span data-compteur="322">322</span> avis vérifiés sur Planity</p>
     </div>
 
     <div class="avis-grid">
@@ -1299,9 +1352,18 @@ document.querySelectorAll("[data-reservation]").forEach(function (btn) {
 
 /* --- Menu : fond crème après défilement --- */
 const header = document.getElementById("header");
-function onScroll() { header.classList.toggle("is-scrolled", window.scrollY > 40); }
-onScroll();
-window.addEventListener("scroll", onScroll, { passive: true });
+const REDUIT = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let scrollEnAttente = false;
+function majHeader() {
+  const y = window.scrollY;
+  header.classList.toggle("is-scrolled", y > 40);   // fond crème
+  header.classList.toggle("is-compact", y > 120);   // menu compact
+  scrollEnAttente = false;
+}
+majHeader();
+window.addEventListener("scroll", function () {
+  if (!scrollEnAttente) { scrollEnAttente = true; requestAnimationFrame(majHeader); }  // 1 calcul max par image
+}, { passive: true });
 
 /* --- Menu burger (mobile) --- */
 const burger = document.getElementById("burger");
@@ -1332,7 +1394,68 @@ const revealObs = new IntersectionObserver(function (entries) {
     if (entry.isIntersecting) { entry.target.classList.add("is-visible"); revealObs.unobserve(entry.target); }
   });
 }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-document.querySelectorAll(".reveal").forEach(function (el) { revealObs.observe(el); });
+document.querySelectorAll(".reveal").forEach(function (el) {
+  // Décalage automatique entre éléments voisins (cartes, avis…) s'il n'y a pas de data-delai
+  if (!el.dataset.delai) {
+    const freres = Array.prototype.filter.call(el.parentElement.children, function (c) { return c.classList.contains("reveal"); });
+    const rang = freres.indexOf(el);
+    if (rang > 0) el.style.setProperty("--delai", Math.min(rang * 0.09, 0.45) + "s");
+  }
+  revealObs.observe(el);
+});
+
+/* --- Chiffres qui défilent quand ils apparaissent --- */
+function animerCompteur(el) {
+  const fin = parseFloat(el.dataset.compteur);
+  const dec = Number(el.dataset.decimales || 0);
+  const format = new Intl.NumberFormat("fr-FR", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+  const duree = 1800, debut = performance.now();
+  function image(t) {
+    const p = Math.min((t - debut) / duree, 1);
+    const e = 1 - Math.pow(1 - p, 4);               // ralentit en fin de course
+    el.textContent = format.format(fin * e);
+    if (p < 1) requestAnimationFrame(image);
+  }
+  el.textContent = format.format(0);
+  requestAnimationFrame(image);
+}
+if (!REDUIT) {
+  const compteurObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { animerCompteur(entry.target); compteurObs.unobserve(entry.target); }
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll("[data-compteur]").forEach(function (el) { compteurObs.observe(el); });
+}
+
+/* --- Effet magnétique sur les boutons (souris uniquement) --- */
+if (!REDUIT && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  document.querySelectorAll(".btn").forEach(function (btn) {
+    let rect = null, raf = 0;
+    btn.addEventListener("pointerenter", function () {
+      rect = btn.getBoundingClientRect();
+      btn.classList.add("is-magnet");
+    });
+    btn.addEventListener("pointermove", function (e) {
+      if (!rect) rect = btn.getBoundingClientRect();
+      // Position du curseur par rapport au centre, de -1 à 1, puis jusqu'à 10 px / 7 px de déplacement
+      const dx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+      const dy = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(function () {
+        btn.style.setProperty("--mx", (dx * 10).toFixed(1) + "px");
+        btn.style.setProperty("--my", (dy * 7).toFixed(1) + "px");
+      });
+    });
+    btn.addEventListener("pointerleave", function () {
+      cancelAnimationFrame(raf);
+      rect = null;
+      btn.classList.remove("is-magnet");     // retour en douceur au centre
+      btn.style.setProperty("--mx", "0px");
+      btn.style.setProperty("--my", "0px");
+    });
+  });
+}
 
 /* --- Tarifs : onglets de catégories --- */
 const onglets = document.querySelectorAll('[role="tab"]');
@@ -1365,6 +1488,9 @@ document.querySelectorAll("[data-taille]").forEach(function (btn) {
       li.querySelector(".js-prix").textContent = prix ? prix + " €" : "sur demande";
       li.querySelector(".js-duree").textContent = li.dataset.duree.split("|")[t] || "—";
       li.querySelector(".js-taille").textContent = NOMS_TAILLES[t];
+      if (!REDUIT) li.querySelector(".tarif__prix").animate(
+        [{ opacity: 0, transform: "translateY(6px)" }, { opacity: 1, transform: "none" }],
+        { duration: 400, easing: "cubic-bezier(.16, 1, .3, 1)" });
     });
   });
 });
