@@ -9,10 +9,7 @@
   ║  ces repères (ils apparaissent partout où il faut les changer) : ║
   ║    03 87 79 88 48      → votre téléphone (affiché)               ║
   ║    +33387798848        → votre téléphone (format international)  ║
-  ║    contact@votresalon.fr → votre email                           ║
-  ║    votresalon          → votre compte Instagram (sans le @)      ║
   ║    https://www.votresalon.fr → l'adresse de votre site           ║
-  ║    VOTRE_ID_FORMSPREE  → votre identifiant Formspree             ║
   ║                                                                  ║
   ║  Lien des boutons « Réserver » : à changer UNE SEULE FOIS dans   ║
   ║  le script en bas de page (constante RESERVATION_URL).           ║
@@ -54,7 +51,6 @@
   "image": "https://www.votresalon.fr/images/photo-salon.jpg",
   "url": "https://www.votresalon.fr/",
   "telephone": "+33387798848",
-  "email": "contact@votresalon.fr",
   "priceRange": "€€",
   "address": {
     "@type": "PostalAddress",
@@ -70,8 +66,7 @@
       "opens": "09:00",
       "closes": "19:00"
     }
-  ],
-  "sameAs": ["https://www.instagram.com/votresalon/"]
+  ]
 }
 </script>
 
@@ -390,11 +385,6 @@ section { padding-block: var(--section); }
 }
 .avis figcaption { margin-top: auto; font-size: .82rem; letter-spacing: .16em; text-transform: uppercase; }
 .avis figcaption span { display: block; color: var(--brun-doux); letter-spacing: .08em; text-transform: none; font-size: .9rem; margin-top: 4px; }
-/* Étiquette d'exemple : À SUPPRIMER une fois les vrais avis ajoutés */
-.exemple {
-  display: inline-block; margin-bottom: 14px; padding: 3px 10px; border: 1px dashed var(--taupe-fonce);
-  border-radius: 999px; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--taupe-fonce);
-}
 .avis-cta { text-align: center; margin-top: 48px; }
 @media (min-width: 860px) { .avis-grid { grid-template-columns: repeat(3, 1fr); } }
 
@@ -458,21 +448,16 @@ section { padding-block: var(--section); }
    13. CONTACT
    ===================================================================== */
 .contact { display: grid; gap: 64px; }
-.form { display: grid; gap: 18px; }
-.form__row { display: grid; gap: 18px; }
-@media (min-width: 600px) { .form__row { grid-template-columns: 1fr 1fr; } }
-.field label { display: block; font-size: .76rem; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 6px; }
-.field input, .field textarea {
-  width: 100%; font: inherit; font-size: 1rem; color: var(--brun);
-  background: var(--blanc); border: 1px solid rgba(59,47,40,.2); border-radius: 2px;
-  padding: 14px 16px; min-height: 52px;
-  transition: border-color .3s;
+.resa {
+  align-self: start;
+  background: var(--sable); padding: clamp(44px, 7vw, 72px) clamp(26px, 5vw, 56px) clamp(36px, 5vw, 48px);
+  border-radius: 999px 999px 4px 4px / 220px 220px 4px 4px;   /* forme d'arche */
+  text-align: center;
 }
-.field textarea { min-height: 150px; resize: vertical; }
-.field input:focus, .field textarea:focus { outline: none; border-color: var(--brun); }
-.form__hp { position: absolute; left: -9999px; } /* piège anti-spam invisible */
-.form__status { min-height: 1.5em; font-size: .95rem; margin: 0; }
-.form .btn { justify-self: start; }
+.resa h3 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 300; }
+.resa p { color: var(--brun-doux); max-width: 42ch; margin-inline: auto; }
+.resa__btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 30px 0 22px; }
+.resa__note { font-size: .88rem; }
 
 .infos { display: grid; gap: 30px; align-content: start; }
 .infos h3 { font-size: 1.5rem; margin-bottom: .3em; }
@@ -684,10 +669,7 @@ dialog p { font-size: .95rem; }
 </section>
 
 <!-- ================================================================
-     5. AVIS CLIENTES
-     ⚠️ Les 3 avis ci-dessous sont des EXEMPLES. Remplacez-les par de
-     vrais avis (Google, Planity…) et supprimez les étiquettes
-     <span class="exemple">. Ne publiez jamais de faux avis.
+     5. AVIS CLIENTES — avis réels relevés sur Planity (novembre 2026)
      ================================================================ -->
 <section class="bg-creme torn" id="avis">
   <div class="container">
@@ -700,22 +682,19 @@ dialog p { font-size: .95rem; }
 
     <div class="avis-grid">
       <figure class="avis reveal">
-        <span class="exemple">Exemple – à remplacer par un vrai avis</span>
         <div class="etoiles" role="img" aria-label="5 étoiles sur 5">★★★★★</div>
-        <blockquote>« Mon lissage tient depuis des mois, mes cheveux sont doux et brillants. »</blockquote>
-        <figcaption>Prénom<span>Lissage Dubaï®</span></figcaption>
+        <blockquote>« Les coiffeuses sont toujours très professionnelles, souriantes et agréables. C’est rare d’avoir affaire à un professionnalisme aussi constant. Je recommande vivement ce salon. »</blockquote>
+        <figcaption>Cliente Planity<span>Avis du 16/09/2026</span></figcaption>
       </figure>
       <figure class="avis reveal" data-delai="1">
-        <span class="exemple">Exemple – à remplacer par un vrai avis</span>
         <div class="etoiles" role="img" aria-label="5 étoiles sur 5">★★★★★</div>
-        <blockquote>« Diagnostic très sérieux avant de commencer, on m'a conseillé le lissage Français®. Accueil adorable. »</blockquote>
-        <figcaption>Prénom<span>Lissage Français®</span></figcaption>
+        <blockquote>« Comme d’habitude Léane est gentille, chaleureuse, douce et professionnelle. Merci et à bientôt. »</blockquote>
+        <figcaption>Cliente Planity<span>Avis du 14/10/2026</span></figcaption>
       </figure>
       <figure class="avis reveal" data-delai="2">
-        <span class="exemple">Exemple – à remplacer par un vrai avis</span>
         <div class="etoiles" role="img" aria-label="5 étoiles sur 5">★★★★★</div>
-        <blockquote>« Mes cheveux abîmés ont retrouvé leur brillance après le soin Botox. »</blockquote>
-        <figcaption>Prénom<span>Soin Botox</span></figcaption>
+        <blockquote>« Lilia au top, rien à dire : brushing et coupe parfaits. »</blockquote>
+        <figcaption>Cliente Planity<span>Avis du 06/10/2026</span></figcaption>
       </figure>
     </div>
 
@@ -1185,43 +1164,21 @@ dialog p { font-size: .95rem; }
     <div class="section-head">
       <p class="eyebrow reveal">Contact</p>
       <h2 class="reveal">Contactez-<em>nous</em></h2>
-      <p class="reveal">Une question, une demande de devis pour un mariage ou une couleur ? Écrivez-nous, nous répondons sous 24 h.</p>
+      <p class="reveal">Une question, un devis pour des extensions ou un chignon de mariage ? Appelez-nous ou passez au salon, à deux pas de la place de la République.</p>
     </div>
 
     <div class="contact">
-      <!-- FORMULAIRE : remplacez VOTRE_ID_FORMSPREE par votre identifiant
-           (compte gratuit sur formspree.io → « New form » → copiez l'ID après /f/) -->
-      <form class="form reveal" id="form-contact" action="https://formspree.io/f/VOTRE_ID_FORMSPREE" method="POST">
-        <div class="form__row">
-          <div class="field">
-            <label for="prenom">Prénom</label>
-            <input id="prenom" name="prenom" type="text" autocomplete="given-name" required>
-          </div>
-          <div class="field">
-            <label for="nom">Nom</label>
-            <input id="nom" name="nom" type="text" autocomplete="family-name" required>
-          </div>
+      <!-- RÉSERVATION : les boutons ouvrent la page Planity du salon -->
+      <div class="resa reveal">
+        <p class="eyebrow">En ligne, 24 h / 24</p>
+        <h3>Réservez votre <em>rendez-vous</em> sur Planity</h3>
+        <p>Choisissez votre prestation, votre coiffeuse et votre créneau en quelques secondes. Vous recevez une confirmation et un rappel avant votre rendez-vous.</p>
+        <div class="resa__btns">
+          <a href="#reserver" class="btn" data-reservation>Réserver sur Planity</a>
+          <a href="tel:+33387798848" class="btn btn--ghost">Appeler le salon</a>
         </div>
-        <div class="form__row">
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required>
-          </div>
-          <div class="field">
-            <label for="tel">Téléphone</label>
-            <input id="tel" name="telephone" type="tel" autocomplete="tel">
-          </div>
-        </div>
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <!-- Champs utiles à Formspree -->
-        <input type="hidden" name="_subject" value="Nouveau message depuis le site L’Enseigne du Lissage">
-        <input class="form__hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button type="submit" class="btn">Envoyer le message</button>
-        <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
-      </form>
+        <p class="resa__note">Gloss seul, gommage et prestations « à la carte » : réservation par téléphone uniquement.</p>
+      </div>
 
       <div class="infos reveal" data-delai="1">
         <div>
@@ -1238,10 +1195,9 @@ dialog p { font-size: .95rem; }
         <div>
           <h3>Nous joindre</h3>
           <p><a href="tel:+33387798848">03 87 79 88 48</a><br>
-             <a href="mailto:contact@votresalon.fr">contact@votresalon.fr</a><br>
-             <a href="https://www.instagram.com/votresalon/" target="_blank" rel="noopener">Instagram @votresalon</a></p>
+             <a href="#reserver" data-reservation>Notre page Planity</a></p>
+          <!-- INSTAGRAM : ajoutez ici le lien du compte du salon -->
         </div>
-        <!-- CARTE : remplacez l'adresse dans src (gardez les + entre les mots) -->
         <iframe class="carte"
           title="Plan d'accès au salon L’Enseigne du Lissage"
           src="https://www.google.com/maps?q=55+rue+Serpenoise+57000+Metz&amp;output=embed"
@@ -1276,14 +1232,14 @@ dialog p { font-size: .95rem; }
         <ul>
           <li>55 rue Serpenoise, 57000 Metz</li>
           <li><a href="tel:+33387798848">03 87 79 88 48</a></li>
-          <li><a href="mailto:contact@votresalon.fr">contact@votresalon.fr</a></li>
         </ul>
       </div>
       <div>
-        <h4>Suivez-nous</h4>
+        <h4>Réserver</h4>
         <ul>
-          <li><a href="https://www.instagram.com/votresalon/" target="_blank" rel="noopener">Instagram</a></li>
-          <!-- Ajoutez d'autres réseaux ici, ex. Facebook / TikTok -->
+          <li><a href="#reserver" data-reservation>Planity</a></li>
+          <li><a href="#reserver">Nos tarifs</a></li>
+          <!-- Ajoutez ici Instagram / Facebook / TikTok du salon -->
         </ul>
       </div>
     </div>
@@ -1302,12 +1258,12 @@ dialog p { font-size: .95rem; }
   <h2 id="mentions-titre">Mentions <em>légales</em></h2>
   <h3>Éditeur du site</h3>
   <p>L’Enseigne du Lissage – [forme juridique : EI, SARL…] – [Nom et prénom du/de la responsable]<br>
-     55 rue Serpenoise, 57000 Metz – 03 87 79 88 48 – contact@votresalon.fr<br>
+     55 rue Serpenoise, 57000 Metz – 03 87 79 88 48<br>
      SIRET : [numéro] – Directeur·rice de la publication : [nom]</p>
   <h3>Hébergement</h3>
   <p>[Nom de l'hébergeur, adresse, téléphone] – ex. Netlify, OVH, Hostinger…</p>
   <h3>Données personnelles</h3>
-  <p>Les informations envoyées via le formulaire de contact servent uniquement à répondre à votre demande. Elles ne sont ni vendues ni cédées. Vous pouvez demander leur suppression à contact@votresalon.fr.</p>
+  <p>Ce site ne collecte aucune donnée personnelle. Les réservations sont gérées par Planity, selon sa propre politique de confidentialité.</p>
   <h3>Crédits photos</h3>
   <p>[À compléter]</p>
 </dialog>
@@ -1409,30 +1365,6 @@ document.querySelectorAll("[data-taille]").forEach(function (btn) {
 /* --- Image manquante : on la masque pour laisser le fond beige + son nom --- */
 document.querySelectorAll(".photo img").forEach(function (img) {
   img.addEventListener("error", function () { img.style.visibility = "hidden"; });
-});
-
-/* --- Formulaire de contact (envoi Formspree sans quitter la page) --- */
-const form = document.getElementById("form-contact");
-const statut = document.getElementById("form-status");
-form.addEventListener("submit", async function (e) {
-  e.preventDefault();
-  if (form.action.indexOf("VOTRE_ID_FORMSPREE") !== -1) {
-    statut.textContent = "Formulaire pas encore configuré : ajoutez votre identifiant Formspree.";
-    return;
-  }
-  const bouton = form.querySelector("button[type=submit]");
-  bouton.disabled = true;
-  statut.textContent = "Envoi en cours…";
-  try {
-    const rep = await fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
-    if (!rep.ok) throw new Error();
-    form.reset();
-    statut.textContent = "Merci ! Votre message a bien été envoyé, nous vous répondons très vite.";
-  } catch (err) {
-    statut.textContent = "Oups, l'envoi a échoué. Appelez-nous au 03 87 79 88 48 ou réessayez.";
-  } finally {
-    bouton.disabled = false;
-  }
 });
 
 /* --- Mentions légales --- */
